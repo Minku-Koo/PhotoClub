@@ -1,14 +1,12 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>CJU PHOTO CLUB</title>
-    </head>
-    <body>
-        <center>
-            <h1>
-                Hello Cju PhotoClub
-            </h1>
-        </center>
+{% extends 'menu.html' %}
+{% block content %}
+    <div class="main_under_box">
+        <h1>
+            사진예술연구회에 오신 것을 환영합니다.
+        </h1>
+        <h3>since 1977</h3>
 
-    </body>
-</html>
+        <img class="main_poster" src = "./static/img/main/main_poster.jpg" >
+    </div>
+
+{% endblock %}
