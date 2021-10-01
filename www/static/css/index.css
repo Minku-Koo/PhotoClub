@@ -1,0 +1,78 @@
+.main_logo{
+    width: 15%;
+    display: inline-block;
+}
+.menu_box{
+    padding: 10px 0;
+    padding-bottom: 30px;
+    border-bottom: 1px solid black;
+}
+.main_box{
+    width: 1000px;
+    margin: 0 auto;
+    /* border: 1px solid; */
+}
+.main_menu{
+    display: inline-block;
+    float: right;
+    /* border: 1px solid blue; */
+    margin: 50px 0;
+}
+.main_menu li{
+    text-decoration: none;
+    /* color: black;/ */
+    display: inline-block;
+    /* float: right; */
+    font-size: 25px;
+    margin: 0 15px;
+    color: black;
+    /* border: 1px solid green; */
+}
+.main_under_box{
+    width: 60%;
+    /* border: 1px blue solid; */
+    margin: 70px auto;
+    
+}
+.main_under_box h1{
+    margin: 10px 0;
+}
+.main_under_box h3{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+.main_poster{
+    width: 100%;
+}
+
+
+
+
+/* INTRO */
+.intro_box{
+    width : 80%;
+    margin: 0 auto;
+    padding : 20px;
+    /* border: 2px solid blue; */
+}
+.chairman{
+    display: inline-block;
+    /* border: 2px solid blue; */
+    margin: 20px;
+}
+.chairman_profile{
+    width: 240px;
+}
+.chairman_name{
+    font-size: 35px;
+    margin-top: 15px;
+    text-align: center;
+}
+.main_intro{
+    display: inline-block;
+    /* border: 1px solid red; */
+    margin: 10px;
+    margin-top: 30px;
+    vertical-align: top;
+}
