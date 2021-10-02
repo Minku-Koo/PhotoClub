@@ -1,0 +1,13 @@
+{% extends 'menu.html' %}
+{% block content %}
+    <div class="intro_box">
+        <div class="chairman">
+            <img src="./static/img/user/{{profile}}" class="chairman_profile">
+            <div class="chairman_name">회장 {{chairman}}</div>
+        </div>
+        <div class="main_intro">
+        <h2>사진예술연구회 ~~</h2><br>
+        {{ intro_text }}
+        </div>
+    </div>
+{% endblock %}
