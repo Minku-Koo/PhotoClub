@@ -1,0 +1,32 @@
+.manager_box{
+    width: 1000px;
+    margin: 50px;
+    /* border: solid 1px ; */
+}
+.manager_box input{
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+}
+#login_bt{
+    width: 100px;
+    height: 60px;
+    font-size: 20px;
+}
+.login_err{
+    color: red;
+}
+.manager_box button{
+    width: 200px;
+    height: 100px;
+    margin: 30px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: solid 2px ;
+    color: black;
+    cursor: pointer;
+}
+.button_explain{
+    display: inline-block;
+    font-size: 22px;
+}
