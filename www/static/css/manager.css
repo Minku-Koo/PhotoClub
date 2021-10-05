@@ -16,7 +16,7 @@
 .login_err{
     color: red;
 }
-.manager_box button{
+.manager_menu{
     width: 200px;
     height: 100px;
     margin: 30px;
@@ -29,4 +29,47 @@
 .button_explain{
     display: inline-block;
     font-size: 22px;
+}
+.back_btn{
+    width: 120px;
+    height : 50px;
+    font-size: 19px;
+}
+.set_site_box{
+    display: inline-block;
+
+}
+.set_site_inner{
+    /* display: inline-block; */
+    border : solid black 1px;
+    margin: 25px 10px;
+    padding: 10px;
+    vertical-align: top;
+    
+}
+.set_site_inner th{
+    border-bottom: 2px solid;
+}
+.set_site_inner caption{
+    font-size: 25px;
+    margin: 25px;
+}
+.set_site_inner td {
+    padding: 15px;
+    word-break: break-all;
+    border-bottom: 1px solid;
+}
+.set_history_img{
+    width: 100px;
+}
+.faq_table pre{
+    max-width: 200px;
+}
+
+.set_site_menut_btn{
+    width: 150px;
+    height: 60px;
+    font-size: 18px;
+    padding: 8px;
+    margin: 9px;
 }
