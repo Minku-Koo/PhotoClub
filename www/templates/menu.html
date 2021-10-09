@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./static/css/index.css">
+        <title>청주대학교 사진예술연구회</title>
+    </head>
+    <body>
+        <div class="main_box">
+            <div class="menu_box">
+                <a href="/"><img class="main_logo" src="./static/img/main/logo.jpg" ></a>
+                <ul class="main_menu">
+                    <li>작품 전시</li>
+                    <li>부원 소개</li>
+                    <a href="/intro"><li>동아리 소개</li></a>
+                    <a href="/login"><li>동아리 역사</li></a>
+                </ul>
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
