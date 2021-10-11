@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/css/index.css">
+        <title>Cheongju University, Photography Club</title>
+
+        <style>*{
+                box-sizing: border-box;
+            }
+            header{
+                width: 1600px;
+                height: 100px;
+                margin: 20px auto;
+            }
+            #logo_box{
+                display: inline-block;
+                float: left;
+                cursor: pointer;
+                height: 100px;
+            }
+            .logo_img{
+                height: 100px;
+            }
+            .logo_txt{
+                display: inline-block;
+                vertical-align: top;
+                font-weight: 900;
+                font-size: 24px;
+                line-height: 100px;
+            }
+            
+            .main_box{
+                width: 1000px;
+                margin: 0 auto;
+            }
+            .menu_nav{
+                display: inline-block;
+                height: 100px;
+                float: right;
+                margin: 0;
+            }
+            .menu_nav li{
+                display: inline-block;
+                width: 160px;
+                height: 100px;
+                font-size: 20px;
+                margin-right: 30px;
+                line-height: 100px;
+                color: black;
+                text-decoration: none;
+                text-align: center;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id='logo_box' onclick='location.href="/"'>
+                <img class="logo_img" src="/static/img/main/logo.jpg">
+                <div class="logo_txt">사진예술연구회</div>
+            </div>
+
+            <ul class="menu_nav">
+                <li onclick='location.href="/login"'>작품소개</li>
+                <li onclick='location.href="/intro"'>동아리 소개</li>
+                <li onclick='location.href="/login"'>회원 소개</li>
+                <li onclick='location.href="/login"'>동아리 역사</li>
+                <li onclick='location.href="/login"'>FAQ</li>
+                <li onclick='location.href="/login"'>연혁</li>
+            </ul>
+        </header>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
