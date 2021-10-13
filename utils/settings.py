@@ -43,6 +43,17 @@ def createTable(cursor, table_name):
     cursor.execute(query)
     return 
 
+# Set Initial Data
+def setInitData(cursor):
+    query = "SELECT COUNT(*) FROM site;"
+    cursor.execute(query)
+    column = int(cursor.fetchone()[0])
+    if column >0 : return 
+
+    query = "INSERT INTO site (poster, intro, student_intro, graduated_intro) \
+         VALUES ('MAIN_POSTER.jpg','동아리 소개글','회장 인사말','동호인 회장 인사말');"
+    cursor.execute(query)
+    return 
 
 
 if __name__ == "__main__":
@@ -62,4 +73,8 @@ if __name__ == "__main__":
     for table in db_info.tables.keys():
         if not checkTable(cursor, table):
             createTable(cursor, table)
+
+        if table == "site":
+            # Input Homepage Initial Data
+            setInitData(cursor)
     
