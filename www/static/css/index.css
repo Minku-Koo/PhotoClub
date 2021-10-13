@@ -1,14 +1,68 @@
-
-.main_under_box{
-    width: 60%;
-    margin: 70px auto;
+@font-face {
+    font-family: '함박';
+    src: url('/static/font/SF함박눈-OTF.OTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'score5';
+    src: url('/static/font/SCDREAM5.OTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'score3';
+    src: url('/static/font/SCDREAM3.OTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.main_box{
+    position: relative;
+    width: 1600px;
+    height: 580px;
+    margin: 30px auto 50px;
 }
 
 .main_poster{
-    width: 100%;
+    width: fit-content;
+    margin-left: 200px;
+    padding: 25px;
+    border: 8px solid var(--black-color-1);
+    box-shadow: -40px 40px 20px rgba(50, 50, 50, 0.3);
+    background: rgb(210, 210, 190);
+}
+.main_poster img{
+    width: 300px;
+}
+.since_txt{
+    position: absolute;
+    font-family: 'score5';
+    font-size: 20px;
+    color: var(--gray-color-2);
+    left: 0;
+    bottom: 0;
+}
+.gen_txt{
+    position: absolute;
+    font-family: '함박';
+    font-size: 60px;
+    color: var(--gray-color-2);
+    right: 100px;
+    bottom: 0;
 }
 
-
+.center_box{
+    width: 100%;
+    padding: 15px 0;
+    background: #EEEEEE;
+    text-align: center;
+}
+.center_txt{
+    height: 120px;
+    border-top: 2px solid rgb(200, 200, 200);
+    border-bottom: 2px solid rgb(200, 200, 200);
+    padding: 20px 0;
+}
 
 
 /* INTRO */
