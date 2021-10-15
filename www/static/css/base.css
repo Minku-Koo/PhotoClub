@@ -39,10 +39,10 @@ body{
     position: absolute;
     width: 0px;
     height: 0px;
-    top: 0;
+    top: -150;
 
-    border-top: 45vw solid transparent;
-    border-left: 95vw solid rgba(150, 150, 150, 0.1);
+    border-top: 62vw solid transparent;
+    border-left: 99vw solid rgba(150, 150, 150, 0.1);
 	/* filter: drop-shadow(-30px -30px 10px rgb(100, 100, 100)); */
 	filter: drop-shadow(-1.2vw -1.2vw 0.4vw rgb(100, 100, 100));
 
@@ -51,7 +51,6 @@ body{
 header{
     position: relative;
     width: 85%;
-    /* height: 100px; */
     height: 5.2vw;
     margin: 60px auto 10px;
 }
@@ -59,7 +58,7 @@ header{
     position: relative;
     float: left;
     cursor: pointer;
-    width: 20%;
+    width: 17%;
     height: 5.2vw;
 }
 .logo_img{
