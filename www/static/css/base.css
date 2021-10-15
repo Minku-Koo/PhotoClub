@@ -48,45 +48,55 @@ body{
     z-index: -9999;
   }
 header{
+    position: relative;
     width: 85%;
     height: 100px;
     margin: 60px auto 10px;
 }
 #logo_box{
-    display: inline-block;
+    position: relative;
     float: left;
     cursor: pointer;
+    width: 20%;
     height: 100px;
+    background: red;
 }
 .logo_img{
+    width: auto;
     height: 100px;
 }
 .logo_txt{
     display: inline-block;
     vertical-align: top;
-    font-size: 28px;
+    /* font-size: 28px; */
+    font-size: 1.5vb;
     line-height: 100px;
     font-family: '어그로_M';
     color: var(--black-color-1);
 }
 
 .menu_nav{
-    display: inline-block;
-    height: 100px;
+    position: relative;
     float: right;
+    height: 100px;
+    width: 80%;
     margin: 0;
+    text-align: right;
+    background: blue;
 }
 .menu_nav li{
     display: inline-block;
-    width: 160px;
+    width: fit-content;
     height: 100px;
+    margin-left: 10%;
+
     font-size: 20px;
-    margin-left: 30px;
     line-height: 100px;
+    white-space: nowrap;
     color: var(--gray-color-2);
     font-family: 'score7';
     text-decoration: none;
-    text-align: center;
+    text-align: right;
     cursor: pointer;
 }
 
