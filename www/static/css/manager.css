@@ -65,11 +65,35 @@
 .faq_table pre{
     max-width: 200px;
 }
-
+.set_plus_btn{
+    background-color: white;
+    font-size: 20px;
+    /* border-radius: 99%; */
+    border: solid black 0px;
+    float: right;
+}
+.set_plus_btn:hover{
+    font-size: 22px;
+    color: red;
+}
 .set_site_menut_btn{
     width: 150px;
     height: 60px;
     font-size: 18px;
     padding: 8px;
     margin: 9px;
+}
+.insert_box{
+    display: inline-block;
+}
+.insert_line{
+    border: solid red 1px;
+}
+.insert_line td{
+    padding: 15px;
+}
+.insert_ajax{
+    vertical-align: middle;
+
+
 }

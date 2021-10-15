@@ -83,3 +83,10 @@ class Sql():
         self.__cursor__.execute(sql)
         return self.__cursor__.fetchall()
 
+    def get_last(self, table):
+        sql = f"""
+        SELECT  * FROM {table};
+        """
+        self.__cursor__.execute(sql)
+        return self.__cursor__.fetchall()[0]
+

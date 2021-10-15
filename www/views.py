@@ -61,7 +61,7 @@ def check():
 def intro():
     print("Intro Page")
     sql = Sql(__db__)
-    poster, intro_text = sql.get_site()
+    poster, intro_text, student, graduated = sql.get_last('site')
     
     #추후에 user에서 회장 찾아서 입력
     name = sql.get_username(1)
@@ -91,11 +91,13 @@ def setsite():
         return render_template("login.html", msg=msg)
     
     sql = Sql(__db__)
+    site = sql.get_last("site")
     history = sql.get_all("history")
     events =  sql.get_all("club_event")
     faq_list = sql.get_all("faq")
     return render_template("set_site.html", 
                             history=history,
+                            site  = site[1:],
                             events=events,
                             faq_list = faq_list)
 
