@@ -18,26 +18,26 @@
 }
 .main_box{
     position: relative;
-    width: 90vw;
-    height: 580px;
+    width: 85%;
+    height: 32vw;
     margin: 30px auto 50px;
 }
 
 .main_poster{
     width: fit-content;
-    margin-left: 200px;
-    padding: 25px;
-    border: 8px solid var(--black-color-1);
-    box-shadow: -40px 40px 20px rgba(50, 50, 50, 0.3);
+    margin-left: 10vw;
+    padding: 1.3vw;
+    border: 0.4vw solid var(--black-color-1);
+    box-shadow: -2vw 2vw 1vw rgba(50, 50, 50, 0.3);
     background: rgb(210, 210, 190);
 }
 .main_poster img{
-    width: 300px;
+    width: 15.6vw;
 }
 .since_txt{
     position: absolute;
     font-family: 'score5';
-    font-size: 20px;
+    font-size: 1vw;
     color: var(--gray-color-2);
     left: 0;
     bottom: 0;
@@ -45,7 +45,7 @@
 .gen_txt{
     position: absolute;
     font-family: '함박';
-    font-size: 60px;
+    font-size: 4vw;
     color: var(--gray-color-2);
     right: 0;
     bottom: 0;
