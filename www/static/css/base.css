@@ -12,14 +12,32 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'score7';
-    src: url('/static/font/SCDREAM7.OTF') format('woff');
+    font-family: 'segonR';
+    src: url('/static/font/SEGOEUI.TTF') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
-    font-family: 'segonR';
-    src: url('/static/font/SEGOEUI.TTF') format('woff');
+    font-family: '함박';
+    src: url('/static/font/SF함박눈-OTF.OTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'score3';
+    src: url('/static/font/SCDREAM3.OTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'score5';
+    src: url('/static/font/SCDREAM5.OTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'score7';
+    src: url('/static/font/SCDREAM7.OTF') format('woff');
     font-weight: normal;
     font-style: normal;
 }

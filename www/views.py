@@ -21,7 +21,7 @@ def index():
 
 @views.route("/intro_piece", methods=["GET"])
 def intro_piece():
-    sql = Sql(__db__)
+    # sql = Sql(__db__)
     # poster, intro_text, student, graduated = sql.get_last('photo')
     
     # #추후에 user에서 회장 찾아서 입력
@@ -32,22 +32,54 @@ def intro_piece():
     # print(f"profile : {profile}")
 
     piece_list = [
-        {"42th 이지우": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"42th 이지우": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"42th 이지우": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"},
-        {"41th 조민혁": "logo.jpg"}
+        {"artist" : "42th 일지우", "image" : "logo.jpg"},
+        {"artist" : "41th 이지우", "image" : "logo.jpg"},
+        {"artist" : "41th 삼지우", "image" : "logo.jpg"},
+        {"artist" : "42th 사지우", "image" : "logo.jpg"},
+        {"artist" : "41th 오지우", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "42th 이지우", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 끝지우", "image" : "logo.jpg"}
     ]
 
     return render_template("intro_piece.html",
+                            piece_list = piece_list
+    )
+
+@views.route("/intro_club", methods=["GET"])
+def intro_club():
+    # sql = Sql(__db__)
+    # poster, intro_text, student, graduated = sql.get_last('photo')
+    
+    # #추후에 user에서 회장 찾아서 입력
+    # name = sql.get_username(1)
+    # profile = sql.get_userpic(1)
+
+    # print(f"name : {name}")
+    # print(f"profile : {profile}")
+
+    piece_list = [
+        {"artist" : "42th 일지우", "image" : "logo.jpg"},
+        {"artist" : "41th 이지우", "image" : "logo.jpg"},
+        {"artist" : "41th 삼지우", "image" : "logo.jpg"},
+        {"artist" : "42th 사지우", "image" : "logo.jpg"},
+        {"artist" : "41th 오지우", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "42th 이지우", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 끝지우", "image" : "logo.jpg"}
+    ]
+
+    return render_template("intro_club.html",
                             piece_list = piece_list
     )
 
