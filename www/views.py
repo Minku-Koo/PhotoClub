@@ -22,19 +22,34 @@ def index():
 @views.route("/intro_piece", methods=["GET"])
 def intro_piece():
     sql = Sql(__db__)
-    poster, intro_text, student, graduated = sql.get_last('site')
+    # poster, intro_text, student, graduated = sql.get_last('photo')
     
-    #추후에 user에서 회장 찾아서 입력
-    name = sql.get_username(1)
-    profile = sql.get_userpic(1)
+    # #추후에 user에서 회장 찾아서 입력
+    # name = sql.get_username(1)
+    # profile = sql.get_userpic(1)
 
-    print(f"name : {name}")
-    print(f"profile : {profile}")
+    # print(f"name : {name}")
+    # print(f"profile : {profile}")
 
-    return render_template("intro.html",
-                            profile=profile, 
-                            chairman=" ".join(name), 
-                            intro_text=intro_text)
+    photo_list = [
+        {"42th 이지우": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"42th 이지우": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"42th 이지우": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"},
+        {"41th 조민혁": "logo.jpg"}
+    ]
+
+    return render_template("intro_piece.html",
+                            photo_list=photo_list
+    )
 
 
 @views.route("/manager", methods=["GET"])
