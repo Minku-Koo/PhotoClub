@@ -19,6 +19,24 @@ def index():
     session["admin"] = False
     return render_template("index.html")
 
+@views.route("/intro_piece", methods=["GET"])
+def intro_piece():
+    sql = Sql(__db__)
+    poster, intro_text, student, graduated = sql.get_last('site')
+    
+    #추후에 user에서 회장 찾아서 입력
+    name = sql.get_username(1)
+    profile = sql.get_userpic(1)
+
+    print(f"name : {name}")
+    print(f"profile : {profile}")
+
+    return render_template("intro.html",
+                            profile=profile, 
+                            chairman=" ".join(name), 
+                            intro_text=intro_text)
+
+
 @views.route("/manager", methods=["GET"])
 def manager():
     print("Manager Page")
@@ -57,21 +75,6 @@ def check():
 
     return render_template("login.html", msg="")
 
-@views.route("/intro", methods=["GET"])
-def intro():
-    print("Intro Page")
-    sql = Sql(__db__)
-    poster, intro_text, student, graduated = sql.get_last('site')
-    
-    #추후에 user에서 회장 찾아서 입력
-    name = sql.get_username(1)
-    profile = sql.get_userpic(1)
-
-    return render_template("intro.html",
-                            profile=profile, 
-                            chairman=" ".join(name), 
-                            intro_text=intro_text)
-
 
 @views.route("/setuser", methods=["GET"])
 def setuser():
@@ -100,5 +103,3 @@ def setsite():
                             site  = site[1:],
                             events=events,
                             faq_list = faq_list)
-
-
