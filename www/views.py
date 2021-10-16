@@ -31,7 +31,7 @@ def intro_piece():
     # print(f"name : {name}")
     # print(f"profile : {profile}")
 
-    photo_list = [
+    piece_list = [
         {"42th 이지우": "logo.jpg"},
         {"41th 조민혁": "logo.jpg"},
         {"41th 조민혁": "logo.jpg"},
@@ -48,7 +48,7 @@ def intro_piece():
     ]
 
     return render_template("intro_piece.html",
-                            photo_list=photo_list
+                            piece_list = piece_list
     )
 
 
