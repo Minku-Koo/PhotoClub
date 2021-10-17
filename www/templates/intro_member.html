@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="/static/css/intro_piece.css">
+
+<script>
+    $(".menu_nav li").eq(0).css("color", "var(--black-color-1)");
+</script>
+
+<div class="piece_list_box">
+    <p class = "notice_txt">* 사진 누르면 커집니다.</p>
+    <div class = "piece_title_box">
+        <p>재학생</p>
+    </div>
+
+    <div class = "piece_title_box">
+        <p>신입생</p>
+    </div>
+
+    <div class = "piece_title_box">
+        <p>동호인</p>
+    </div>
+
+    {% for piece in piece_list %}
+        <div class = "piece_box">
+            <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
+            <p>{{piece['artist']}}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

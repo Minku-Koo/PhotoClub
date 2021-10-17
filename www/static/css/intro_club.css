@@ -12,11 +12,12 @@ body{
 .poster_box p{
     text-align: center;
     font-size: 2.5vw;
-    font-weight: bold;
+    font-family: 'score7';
+    margin: 1vw auto;
 }
 .main_poster{
     width: fit-content;
-    margin: 30px auto;
+    margin: 3vw auto;
     padding: 1.3vw;
     border: 0.4vw solid var(--black-color-1);
     /* box-shadow: -2vw 2vw 1vw rgba(50, 50, 50, 0.3); */
@@ -32,11 +33,12 @@ body{
 }
 
 .gray_title{
-    margin-bottom: -1vw;
+    margin-bottom: -0.6vw;
     opacity: 50%;
     font-size: 2.5vw;
     color: var(--gray-color-3);
     font-weight: bold;
+    font-family: '나눔스퀘어EB';
 }
 .black_title{
     margin-left: 2vw;
@@ -44,6 +46,7 @@ body{
     font-size: 2.5vw;
     color: var(--black-color-1);
     font-weight: bold;
+    font-family: '나눔스퀘어EB';
 }
 
 
@@ -71,7 +74,8 @@ body{
 .club_intro_txt{
     margin: 5vw 3vw;
     font-size: 1.3vw;
-    line-height: 1.8vw;
+    line-height: 2vw;
+    font-family: '나눔스퀘어R';
     color: var(--gray-color-1);
 }
 
@@ -93,10 +97,12 @@ body{
     margin-right: 0.5vw;
     color: var(--black-color-1);
     font-size: 1vw;
+    font-family: 'score5';
 }
 .chairman_box span:nth-child(2){
     color: var(--black-color-1);
     font-size: 1.7vw;
+    font-family: 'score5';
 }
 .chairman_box img{
     float: left;
@@ -107,7 +113,8 @@ body{
     margin-top: 1vw;
 
     font-size: 1vw;
-    line-height: 1.6vw;
+    line-height: 1.8vw;
+    font-family: '나눔스퀘어R';
     color: var(--gray-color-1);
     text-align: right;
 }
@@ -126,10 +133,12 @@ body{
     margin-right: 0.5vw;
     color: var(--black-color-1);
     font-size: 1vw;
+    font-family: 'score5';
 }
 .club_chairman_box span:nth-child(2){
     color: var(--black-color-1);
     font-size: 1.7vw;
+    font-family: 'score5';
 }
 .club_chairman_box img{
     float: right;
@@ -140,6 +149,7 @@ body{
     margin-top: 1vw;
 
     font-size: 1vw;
-    line-height: 1.6vw;
+    line-height: 1.8vw;
+    font-family: '나눔스퀘어R';
     color: var(--gray-color-1);
 }

@@ -8,7 +8,6 @@ body{
     width: 75vw;
     margin: 60px auto;
     text-align: center;
-    cursor: pointer;
 }
 
 .notice_txt{
@@ -16,7 +15,8 @@ body{
     color: var(--red-color);
     text-align: right;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 18px;
+    font-family: '나눔스퀘어B';
 }
 
 .piece_title_box{
@@ -28,6 +28,7 @@ body{
     color: var(--black-color-1);
     font-size: 1.4vw;
     font-weight: bold;
+    font-family: '나눔스퀘어EB';
     line-height: 4vw;
 
     box-shadow: 2px 4px 3px rgba(100, 100, 100, 0.2), -2px 0px 3px rgba(100, 100, 100, 0.2);
@@ -50,5 +51,6 @@ body{
 .piece_box p{
     margin: 10px auto;
     color: var(--gray-color-1);
-    font-size: 1vw;
+    font-size: 0.9vw;
+    font-family: 'score6';
 }
