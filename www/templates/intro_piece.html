@@ -3,7 +3,25 @@
 <link rel="stylesheet" href="/static/css/intro_piece.css">
 
 <script>
-    $(".menu_nav li").eq(0).css("color", "var(--black-color-1)");
+    $(document).ready(function(){
+        $(".freshman").hide();
+        $(".clubman").hide();
+        $(".menu_nav li").eq(0).css("color", "var(--black-color-1)");
+
+        $(".piece_title_box").click(function(){
+            $(".piece_box").hide("slow");
+
+            if( $(this).is( $($(".piece_title_box")[0]) )){
+                $(".student").show("slow");
+            }
+            else if( $(this).is( $($(".piece_title_box")[1]) )){
+                $(".freshman").show("slow");
+            }
+            else if( $(this).is( $($(".piece_title_box")[2]) )){
+                $(".clubman").show("slow");
+            }
+        });
+    })
 </script>
 
 <div class="piece_list_box">
@@ -20,8 +38,22 @@
         <p>동호인</p>
     </div>
 
-    {% for piece in piece_list %}
-        <div class = "piece_box">
+    {% for piece in piece_list_student %}
+        <div class = "piece_box student">
+            <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
+            <p>{{piece['artist']}}</p>
+        </div>
+    {% endfor %}
+
+    {% for piece in piece_list_freshman %}
+        <div class = "piece_box freshman">
+            <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
+            <p>{{piece['artist']}}</p>
+        </div>
+    {% endfor %}
+
+    {% for piece in piece_list_clubman %}
+        <div class = "piece_box clubman">
             <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
             <p>{{piece['artist']}}</p>
         </div>
