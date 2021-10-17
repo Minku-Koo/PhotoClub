@@ -4,51 +4,114 @@ body{
 .tri_background_shadow {
     border: none;
 }
-.piece_list_box{
-    width: 75vw;
-    margin: 60px auto;
-    text-align: center;
-    cursor: pointer;
-}
 
-.notice_txt{
-    margin: 25px 25px 0px;
-    color: var(--red-color);
-    text-align: right;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.piece_title_box{
-    display: inline-block;
-    width: 23vw;
-    height: 4vw;
-    margin: 25px 0.8vw 40px;
-    text-align: center;
-    color: var(--black-color-1);
-    font-size: 1.4vw;
-    font-weight: bold;
-    line-height: 4vw;
-
-    box-shadow: 2px 4px 3px rgba(100, 100, 100, 0.2), -2px 0px 3px rgba(100, 100, 100, 0.2);
-    cursor: pointer;
-}
-
-.piece_box{
-    display: inline-block;
-    width: 23vw;
-    height: 13vw;
-    margin: 25px 0.8vw 40px;
+.poster_box{
     background: white;
+    padding: 30px;
+}
+.poster_box p{
+    text-align: center;
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+.main_poster{
+    width: fit-content;
+    margin: 30px auto;
+    padding: 1.3vw;
+    border: 0.4vw solid var(--black-color-1);
+    /* box-shadow: -2vw 2vw 1vw rgba(50, 50, 50, 0.3); */
+    background: rgb(210, 210, 190);
+}
+.main_poster img{
+    width: 40vw;
+}
+
+.contain_box{
+    position: relative;
+    padding: 5vw 15vw;
+}
+
+.gray_title{
+    margin-bottom: -1vw;
+    opacity: 50%;
+    font-size: 2.5vw;
+    color: var(--gray-color-3);
+    font-weight: bold;
+}
+.black_title{
+    margin-left: 2vw;
+
+    font-size: 2.5vw;
+    color: var(--black-color-1);
+    font-weight: bold;
+}
+
+
+.contain_logo_box{
+    position: absolute;
+    width: fit-content;
+    height: 7vw;
+    top: 4vw;
+    right: 17vw;
     text-align: center;
 }
-.piece_box img{
-    width: auto;
-    max-width: 23vw;
-    height: 13vw;
+
+.contain_logo_box img{
+    width: 6vw;
+    height: 6vw;
 }
-.piece_box p{
-    margin: 10px auto;
+.contain_logo_box div{
+    font-size: 1.4vw;
+
+    white-space: nowrap;
+    font-family: '어그로_M';
+    color: var(--black-color-1);
+}
+
+.club_intro_txt{
+    margin: 5vw 3vw;
+    font-size: 1.3vw;
+    line-height: 1.8vw;
     color: var(--gray-color-1);
+}
+
+.chairman_box{
+    position: relative;
+    overflow: auto;
+    margin-bottom: 5vw;
+    padding: 0vw 3vw;
+}
+.chairman_box img{
+    float: left;
+    width: 25vw;
+    height: auto;
+}
+.chairman_box pre{
+    position: absolute;
+    right: 3vw;
+    bottom: 0;
+    vertical-align: bottom;
     font-size: 1vw;
+    line-height: 1.6vw;
+    color: var(--gray-color-1);
+    text-align: right;
+}
+
+.club_chairman_box{
+    position: relative;
+    overflow: auto;
+    padding: 0vw 3vw;
+}
+.club_chairman_box img{
+    float: right;
+    width: 25vw;
+    height: auto;
+}
+.club_chairman_box pre{
+    position: absolute;
+    left: 3vw;
+    bottom: 0;
+    font-size: 1vw;
+    line-height: 1.6vw;
+    color: var(--gray-color-1);
 }
