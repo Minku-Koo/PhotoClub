@@ -81,16 +81,31 @@ body{
     margin-bottom: 5vw;
     padding: 0vw 3vw;
 }
+.chairman_box div{
+    position: absolute;
+    right: 3vw;
+    bottom: 0;
+}
+.chairman_box p{
+    text-align: right;
+}
+.chairman_box span:nth-child(1){
+    margin-right: 0.5vw;
+    color: var(--black-color-1);
+    font-size: 1vw;
+}
+.chairman_box span:nth-child(2){
+    color: var(--black-color-1);
+    font-size: 1.7vw;
+}
 .chairman_box img{
     float: left;
     width: 25vw;
     height: auto;
 }
 .chairman_box pre{
-    position: absolute;
-    right: 3vw;
-    bottom: 0;
-    vertical-align: bottom;
+    margin-top: 1vw;
+
     font-size: 1vw;
     line-height: 1.6vw;
     color: var(--gray-color-1);
@@ -102,15 +117,28 @@ body{
     overflow: auto;
     padding: 0vw 3vw;
 }
+.club_chairman_box div{
+    position: absolute;
+    left: 3vw;
+    bottom: 0;
+}
+.club_chairman_box span:nth-child(1){
+    margin-right: 0.5vw;
+    color: var(--black-color-1);
+    font-size: 1vw;
+}
+.club_chairman_box span:nth-child(2){
+    color: var(--black-color-1);
+    font-size: 1.7vw;
+}
 .club_chairman_box img{
     float: right;
     width: 25vw;
     height: auto;
 }
 .club_chairman_box pre{
-    position: absolute;
-    left: 3vw;
-    bottom: 0;
+    margin-top: 1vw;
+
     font-size: 1vw;
     line-height: 1.6vw;
     color: var(--gray-color-1);
