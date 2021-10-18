@@ -15,7 +15,7 @@ body{
     width: 18vw;
     height: 4vw;
     border-radius: 2vw;
-    margin: 25px 3vw 40px;
+    margin: 2vw 3vw 3.5vw;
 
     text-align: center;
     color: var(--black-color-1);
@@ -33,14 +33,14 @@ body{
     position: relative;
     display: inline-block;
     width: 16vw;
-    height: 26vw;
+    height: 24vw;
     margin: 2vw 0.8vw 3vw;
     text-align: center;
 }
 .member_box img{
     position: absolute;
     max-width: 16vw;
-    max-height: 26vw;
+    max-height: 24vw;
     width: auto;
     height: 15vw;
     top: 50%;
