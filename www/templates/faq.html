@@ -2,28 +2,6 @@
 {% block content %}
 <link rel="stylesheet" href="/static/css/faq.css">
 
-<script>
-    $(document).ready(function(){
-        $(".freshman").hide();
-        $(".clubman").hide();
-        $(".menu_nav li").eq(0).css("color", "var(--black-color-1)");
-
-        $(".piece_title_box").click(function(){
-            $(".piece_box").hide("slow");
-
-            if( $(this).is( $($(".piece_title_box")[0]) )){
-                $(".student").show("slow");
-            }
-            else if( $(this).is( $($(".piece_title_box")[1]) )){
-                $(".freshman").show("slow");
-            }
-            else if( $(this).is( $($(".piece_title_box")[2]) )){
-                $(".clubman").show("slow");
-            }
-        });
-    })
-</script>
-
 <div class="faq_list_box">
     <p>FAQ</p>
     {% for faq in faq_list %}
