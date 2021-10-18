@@ -1,0 +1,28 @@
+body{
+    background: #EEEEEE;
+}
+.tri_background_shadow {
+    border: none;
+}
+.history_list_box{
+    width: 75vw;
+    margin: 3vw auto 6vw;
+}
+
+.history_box{
+    margin: 4vw auto;
+}
+
+.history_box p{
+    color: var(--gray-color-1);
+}
+.history_box .title{
+    margin: 1.7vw auto;
+    font-family: '나눔스퀘어EB';
+    font-size: 1.7vw;
+}
+.history_box .contain{
+    margin: 0.6vw auto;
+    font-family: '나눔스퀘어B';
+    font-size: 1.4vw;
+}
