@@ -1,0 +1,34 @@
+body{
+    background: #EEEEEE;
+}
+.tri_background_shadow {
+    border: none;
+}
+.faq_list_box{
+    width: 75vw;
+    margin: 3vw auto;
+}
+.faq_list_box > p{
+    font-size: 1.6vw;
+    font-family: 'score7';
+    color: var(--gray-color-1);
+}
+
+.faq_box{
+    margin: 3vw auto;
+}
+
+.faq_box p{
+    margin: 10px auto;
+    color: var(--black-color-1);
+    font-size: 1.2vw;
+    font-family: '나눔스퀘어B';
+}
+.faq_box p:nth-child(2){
+    font-family: '나눔스퀘어R';
+}
+.faq_box span{
+    margin: 10px auto;
+    margin-right: 0.3vw;
+    font-family: '나눔스퀘어B';
+}
