@@ -170,8 +170,8 @@ def faq():
     )
 
 
-@views.route("/history", methods=["GET"])
-def history():
+@views.route("/brief_history", methods=["GET"])
+def brief_history():
     history_list = [
         {"1970년대" : [
             "1977 사진예술연구회 창립 / 초대 지도교수",
@@ -188,7 +188,7 @@ def history():
     ]
 
     return render_template(
-        "history.html",
+        "brief_history.html",
         history_list = history_list
     )
 
