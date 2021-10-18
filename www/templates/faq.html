@@ -2,6 +2,10 @@
 {% block content %}
 <link rel="stylesheet" href="/static/css/faq.css">
 
+<script>
+    $(".menu_nav li").eq(4).css("color", "var(--black-color-1)");
+</script>
+
 <div class="faq_list_box">
     <p>FAQ</p>
     {% for faq in faq_list %}
