@@ -114,6 +114,7 @@ def intro_club():
 
 @views.route("/intro_member", methods=["GET"])
 def intro_member():
+    student_chairman = {"profile" : "광고홍보학과 17 조민혁", "image" : "logo.jpg"}
     student_list = [
         {"profile" : "광고홍보학과 17 조민혁", "image" : "logo.jpg"},
         {"profile" : "광고홍보학과 18 조민혁", "image" : "logo.jpg"},
@@ -121,6 +122,8 @@ def intro_member():
         {"profile" : "광고홍보학과 20 조민혁", "image" : "logo.jpg"},
         {"profile" : "광고홍보학과 21 조민혁", "image" : "logo.jpg"}
     ]
+
+    club_chairman = {"profile" : "컴퓨터정보공학 99 홍길동", "image" : "logo.jpg"}
     clubmember_list = [
         {"profile" : "컴퓨터정보공학 01 홍길동", "image" : "logo.jpg"},
         {"profile" : "컴퓨터정보공학 02 홍길동", "image" : "logo.jpg"},
@@ -130,6 +133,8 @@ def intro_member():
 
     return render_template(
         "intro_member.html",
+        student_chairman = student_chairman,
+        club_chairman = club_chairman,
         student_list = student_list,
         clubmember_list = clubmember_list
     )

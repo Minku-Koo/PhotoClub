@@ -9,16 +9,16 @@
         $(".menu_nav li").eq(0).css("color", "var(--black-color-1)");
 
         $(".piece_title_box").click(function(){
-            $(".piece_box").hide("slow");
+            $(".piece_box").hide("normal");
 
             if( $(this).is( $($(".piece_title_box")[0]) )){
-                $(".student").show("slow");
+                $(".student").show("normal");
             }
             else if( $(this).is( $($(".piece_title_box")[1]) )){
-                $(".freshman").show("slow");
+                $(".freshman").show("normal");
             }
             else if( $(this).is( $($(".piece_title_box")[2]) )){
-                $(".clubman").show("slow");
+                $(".clubman").show("normal");
             }
         });
     })

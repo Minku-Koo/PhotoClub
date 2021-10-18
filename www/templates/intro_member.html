@@ -9,13 +9,13 @@
         $(".menu_nav li").eq(2).css("color", "var(--black-color-1)");
 
         $(".member_title_box").click(function(){
-            $(".member_box").hide("slow");
+            $(".member_box").hide("normal");
 
             if( $(this).is( $($(".member_title_box")[0]) )){
-                $(".student").show("slow");
+                $(".student").show("normal");
             }
             else if( $(this).is( $($(".member_title_box")[1]) )){
-                $(".clubmember").show("slow");
+                $(".clubmember").show("normal");
             }
         });
     });
@@ -31,6 +31,18 @@
     </div>
 
     <br>
+
+    <div class = "member_box student chairman">
+        <p>재학생 회장</p>
+        <img src="/static/img/members/{{student_chairman['image']}}">
+        <p>{{student_chairman['profile']}}</p>
+    </div>
+
+    <div class = "member_box clubmember chairman">
+        <p>동호인 회장</p>
+        <img src="/static/img/members/{{club_chairman['image']}}">
+        <p>{{club_chairman['profile']}}</p>
+    </div>
 
     {% for member in student_list %}
         <div class = "member_box student">

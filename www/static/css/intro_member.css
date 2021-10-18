@@ -35,7 +35,6 @@ body{
     width: 16vw;
     height: 26vw;
     margin: 2vw 0.8vw 3vw;
-    background: white;
     text-align: center;
 }
 .member_box img{
@@ -46,6 +45,8 @@ body{
     height: 15vw;
     top: 50%;
     transform: translate(-50%, -50%);
+    /* bottom: 5%;
+    transform: translateX(-50%); */
 
     box-shadow: 2px 0.6vw 0.3vw rgba(100, 100, 100, 0.2), -2px 0px 0.3vw rgba(100, 100, 100, 0.2);
 }
@@ -60,4 +61,38 @@ body{
     font-size: 0.9vw;
     font-family: 'score6';
     font-family: '나눔스퀘어EB';
+}
+.chairman{
+    display: block;
+    width: 22vw;
+    /* height: 32vw; */
+    height: fit-content;
+    margin: 3vw auto;
+    
+    text-align: center;
+}
+.chairman p{
+    font-size: 1.1vw;
+}
+.chairman p:first-child{
+    height: fit-content;
+    top: -1.4vw;
+    font-size: 1.6vw;
+    font-family: '나눔스퀘어EB';
+}
+.chairman img{
+    position: static;
+    max-width: 22vw;
+    max-height: 32vw;
+    width: auto;
+    height: 18vw;
+    margin: 2vw auto;
+
+    transform: translate(0, 0);
+
+    align-items: center;
+    justify-content: center;
+    flex-basis: 17%;
+
+    border: 0.5vw ridge orange;
 }
