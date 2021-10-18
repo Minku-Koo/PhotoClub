@@ -4,53 +4,37 @@ body{
 .tri_background_shadow {
     border: none;
 }
-.piece_list_box{
+.club_history_list_box{
     width: 75vw;
-    margin: 60px auto;
-    text-align: center;
-    cursor: pointer;
+    margin: 4vw auto;
+    text-align: justify;
 }
 
-.notice_txt{
-    margin: 25px 25px 0px;
-    color: var(--red-color);
-    text-align: right;
-    font-weight: bold;
-    font-size: 14px;
-    font-size: 18px;
+.history_box{
+    width: fit-content;
+    margin: 3vw auto 9vw;
+}
+.history_box > p{
+    margin: 0.2vw 0.8vw;
+    text-align: left;
     font-family: '나눔스퀘어B';
+    font-size: 1.3vw;
 }
 
-.piece_title_box{
-    display: inline-block;
-    width: 23vw;
-    height: 4vw;
-    margin: 25px 0.8vw 40px;
-    text-align: center;
-    color: var(--black-color-1);
-    font-size: 1.4vw;
-    font-weight: bold;
-    font-family: '나눔스퀘어EB';
-    line-height: 4vw;
-
-    box-shadow: 2px 4px 3px rgba(100, 100, 100, 0.2), -2px 0px 3px rgba(100, 100, 100, 0.2);
-    cursor: pointer;
-}
-
-.piece_box{
+.history_img_box{
     display: inline-block;
     width: 23vw;
     height: 13vw;
-    margin: 25px 0.8vw 40px;
+    margin: 0.8vw;
     background: white;
     text-align: center;
 }
-.piece_box img{
+.history_img_box img{
     width: auto;
     max-width: 23vw;
     height: 13vw;
 }
-.piece_box p{
+.history_img_box p{
     margin: 10px auto;
     color: var(--gray-color-1);
     font-size: 1vw;

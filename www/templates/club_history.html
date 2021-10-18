@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<link rel="stylesheet" href="/static/css/intro_piece.css">
+<link rel="stylesheet" href="/static/css/club_history.css">
 
 <script>
     $(document).ready(function(){
@@ -8,25 +8,17 @@
     })
 </script>
 
-<div class="piece_list_box">
-    {% for piece in piece_list_student %}
-        <div class = "piece_box student">
-            <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
-            <p>{{piece['artist']}}</p>
-        </div>
-    {% endfor %}
-
-    {% for piece in piece_list_freshman %}
-        <div class = "piece_box freshman">
-            <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
-            <p>{{piece['artist']}}</p>
-        </div>
-    {% endfor %}
-
-    {% for piece in piece_list_clubman %}
-        <div class = "piece_box clubman">
-            <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
-            <p>{{piece['artist']}}</p>
+<div class="club_history_list_box">
+    {% for history in club_history_list %}
+        <div class = "history_box">
+            {% for k, v in history.items() %}
+            <p class = "title">{{k}}</p>
+                {% for img in v %}
+                <div class = "history_img_box">
+                    <img src="/static/img/club_history/{{img}}">
+                </div>
+                {% endfor %}
+            {% endfor %}
         </div>
     {% endfor %}
 </div>
