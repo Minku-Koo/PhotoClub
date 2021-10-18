@@ -9,7 +9,7 @@ body{
     margin: 3vw auto 6vw;
 }
 .faq_list_box > p{
-    font-size: 1.6vw;
+    font-size: 1.8vw;
     font-family: 'score7';
     color: var(--gray-color-1);
 }
@@ -19,9 +19,9 @@ body{
 }
 
 .faq_box p{
-    margin: 10px auto;
+    margin: 1vw auto;
     color: var(--black-color-1);
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-family: '나눔스퀘어B';
 }
 .faq_box p:nth-child(2){
