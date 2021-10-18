@@ -153,6 +153,48 @@ def intro_member():
         club_chairman_name = club_chairman_name
     )
 
+@views.route("/club_history", methods=["GET"])
+def club_history():
+
+    piece_list_student = [
+        {"artist" : "42th 일지우", "image" : "logo.jpg"},
+        {"artist" : "41th 이지우", "image" : "logo.jpg"},
+        {"artist" : "41th 삼지우", "image" : "logo.jpg"},
+        {"artist" : "42th 사지우", "image" : "logo.jpg"},
+        {"artist" : "41th 오지우", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "42th 이지우", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
+        {"artist" : "41th 끝지우", "image" : "logo.jpg"}
+    ]
+
+    piece_list_freshman = [
+        {"artist" : "43th 새내기", "image" : "logo.jpg"},
+        {"artist" : "43th 새내기", "image" : "logo.jpg"},
+        {"artist" : "43th 새내기", "image" : "logo.jpg"},
+        {"artist" : "43th 새내기", "image" : "logo.jpg"},
+        {"artist" : "43th 새내기", "image" : "logo.jpg"},
+        {"artist" : "43th 새내기", "image" : "logo.jpg"}
+    ]
+
+    piece_list_clubman = [
+        {"artist" : "1th 일동호", "image" : "logo.jpg"},
+        {"artist" : "2th 이동호", "image" : "logo.jpg"},
+        {"artist" : "3th 삼동호", "image" : "logo.jpg"},
+        {"artist" : "10th 십동호", "image" : "logo.jpg"}
+    ]
+
+    return render_template(
+        "club_history.html",
+        piece_list_student = piece_list_student,
+        piece_list_freshman = piece_list_freshman,
+        piece_list_clubman = piece_list_clubman
+    )
+
 
 @views.route("/faq", methods=["GET"])
 def faq():
