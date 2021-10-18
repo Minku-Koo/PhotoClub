@@ -114,43 +114,24 @@ def intro_club():
 
 @views.route("/intro_member", methods=["GET"])
 def intro_member():
-    chairman_info = "41st 회장"
-    chairman_name = "조민혁"
-
-    club_chairman_info = "동호인 회장"
-    club_chairman_name = "박은규"
-
-    club_intro_txt = """개강이라는 첫 설렘으로 만나 어느덧 첫 눈이 내리는 겨울이 되었습니다.
-새로운 사람들을 만나, 전국 각지로 사진을 찍으며 추억을 쌓다 보니
-어느 새 일년이 지나 전시회를 개최하게 되었습니다.
-지난 44회 전시회 때, 임원진으로 참여하여 전시회를 준비하였는데,
-이번 행사에는 회장으로서 전시회를 준비하니 감회가 깊습니다.
-
-사진예술연구회는 청주대학ㅇ교ㅑㅈㄷ노ㅑ뢰너ㅠㅓ리ㅏㄴ어ㅏㅗㅓㅏ우ㅏ린
-ㅇ아럼누ㅏㅣㅇ너ㅣㄷ러ㅏ너독발노ㅓㅏㅣㅇㅈ눠ㅏㅣㅇ;ㄴㅊ,ㅠㅡ치ㅡㅋ.,ㅟ
-퉈ㅜㅏ ㅋ/,ㅏㅓㅣㅣㅏㅇㄴ츠,ㅜ라치ㅡㅜ.,"""
-
-    chairman_txt = """애들이 제 말 안들어요 ㅠㅠ
-엉ㅇ어엉융아이ㅓ어ㅕ영ㅇ우유히
-원유ㅠ아ㅓㅏㅗ놓ㅎㄴ짜증ㅇ나아 융
-ㅇ내ㅓㅐㅑㅑㄹ ㅓㅣㅏㄹ옹ㄶㅎ바보
- 멍청ㅎ이 조민혁 메롱 이건 내맘이다"""
-
-    club_chairman_txt = """애들이 제 말 안들어요 ㅠㅠ
-엉ㅇ어엉융아이ㅓ어ㅕ영ㅇ우유히
-원유ㅠ아ㅓㅏㅗ놓ㅎㄴ짜증ㅇ나아 융
-ㅇ내ㅓㅐㅑㅑㄹ ㅓㅣㅏㄹ옹ㄶㅎ바보
-멍청ㅎ이 조민혁 메롱 이건 내맘이다"""
+    student_list = [
+        {"profile" : "광고홍보학과 17 조민혁", "image" : "logo.jpg"},
+        {"profile" : "광고홍보학과 18 조민혁", "image" : "logo.jpg"},
+        {"profile" : "광고홍보학과 19 조민혁", "image" : "logo.jpg"},
+        {"profile" : "광고홍보학과 20 조민혁", "image" : "logo.jpg"},
+        {"profile" : "광고홍보학과 21 조민혁", "image" : "logo.jpg"}
+    ]
+    clubmember_list = [
+        {"profile" : "컴퓨터정보공학 01 홍길동", "image" : "logo.jpg"},
+        {"profile" : "컴퓨터정보공학 02 홍길동", "image" : "logo.jpg"},
+        {"profile" : "컴퓨터정보공학 03 홍길동", "image" : "logo.jpg"},
+        {"profile" : "컴퓨터정보공학 04 홍길동", "image" : "logo.jpg"}
+    ]
 
     return render_template(
         "intro_member.html",
-        club_intro_txt = club_intro_txt,
-        chairman_txt = chairman_txt,
-        club_chairman_txt = club_chairman_txt,
-        chairman_info = chairman_info,
-        chairman_name = chairman_name,
-        club_chairman_info = club_chairman_info,
-        club_chairman_name = club_chairman_name
+        student_list = student_list,
+        clubmember_list = clubmember_list
     )
 
 @views.route("/club_history", methods=["GET"])

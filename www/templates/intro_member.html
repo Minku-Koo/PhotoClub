@@ -1,29 +1,48 @@
 {% extends 'base.html' %}
 {% block content %}
-<link rel="stylesheet" href="/static/css/intro_piece.css">
+<link rel="stylesheet" href="/static/css/intro_member.css">
 
 <script>
-    $(".menu_nav li").eq(2).css("color", "var(--black-color-1)");
+    $(document).ready(function(){
+        $(".clubmember").hide();
+
+        $(".menu_nav li").eq(2).css("color", "var(--black-color-1)");
+
+        $(".member_title_box").click(function(){
+            $(".member_box").hide("slow");
+
+            if( $(this).is( $($(".member_title_box")[0]) )){
+                $(".student").show("slow");
+            }
+            else if( $(this).is( $($(".member_title_box")[1]) )){
+                $(".clubmember").show("slow");
+            }
+        });
+    });
 </script>
 
-<div class="piece_list_box">
-    <p class = "notice_txt">* 사진 누르면 커집니다.</p>
-    <div class = "piece_title_box">
+<div class="member_list_box">
+    <div class = "member_title_box">
         <p>재학생</p>
     </div>
 
-    <div class = "piece_title_box">
-        <p>신입생</p>
-    </div>
-
-    <div class = "piece_title_box">
+    <div class = "member_title_box">
         <p>동호인</p>
     </div>
 
-    {% for piece in piece_list %}
-        <div class = "piece_box">
-            <img src="/static/img/pieces/{{piece['image']}}" class="chairman_profile">
-            <p>{{piece['artist']}}</p>
+    <br>
+
+    {% for member in student_list %}
+        <div class = "member_box student">
+            <img src="/static/img/members/{{member['image']}}">
+            <p>{{member['profile']}}</p>
+        </div>
+    {% endfor %}
+
+    {% for member in clubmember_list %}
+        <div class = "member_box clubmember">
+            <img src="/static/img/members/{{member['image']}}">
+            <p>{{member['profile']}}</p>
         </div>
     {% endfor %}
 </div>
