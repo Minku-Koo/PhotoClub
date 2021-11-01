@@ -21,7 +21,8 @@ def index():
 
 @views.route("/intro_piece", methods=["GET"])
 def intro_piece():
-    # sql = Sql(__db__)
+    sql = Sql(__db__)
+    piece_list_student, piece_list_freshman, piece_list_clubman = sql.get_user_photo_info()
     # poster, intro_text, student, graduated = sql.get_last('photo')
     
     # #추후에 user에서 회장 찾아서 입력
@@ -30,7 +31,7 @@ def intro_piece():
 
     # print(f"name : {name}")
     # print(f"profile : {profile}")
-
+    '''
     piece_list_student = [
         {"artist" : "42th 일지우", "image" : "logo.jpg"},
         {"artist" : "41th 이지우", "image" : "logo.jpg"},
@@ -62,6 +63,7 @@ def intro_piece():
         {"artist" : "3th 삼동호", "image" : "logo.jpg"},
         {"artist" : "10th 십동호", "image" : "logo.jpg"}
     ]
+    '''
 
     return render_template(
         "intro_piece.html",
@@ -72,33 +74,17 @@ def intro_piece():
 
 @views.route("/intro_club", methods=["GET"])
 def intro_club():
-    chairman_info = "41st 회장"
-    chairman_name = "조민혁"
+    sql = Sql(__db__)
+    chairs = sql.get_chairs()
+
+    chairman_info = "재학생 회장"
+    chairman_name = chairs["student"][0]
 
     club_chairman_info = "동호인 회장"
-    club_chairman_name = "박은규"
+    club_chairman_name = chairs["club_member"][0]
 
-    club_intro_txt = """개강이라는 첫 설렘으로 만나 어느덧 첫 눈이 내리는 겨울이 되었습니다.
-새로운 사람들을 만나, 전국 각지로 사진을 찍으며 추억을 쌓다 보니
-어느 새 일년이 지나 전시회를 개최하게 되었습니다.
-지난 44회 전시회 때, 임원진으로 참여하여 전시회를 준비하였는데,
-이번 행사에는 회장으로서 전시회를 준비하니 감회가 깊습니다.
-
-사진예술연구회는 청주대학ㅇ교ㅑㅈㄷ노ㅑ뢰너ㅠㅓ리ㅏㄴ어ㅏㅗㅓㅏ우ㅏ린
-ㅇ아럼누ㅏㅣㅇ너ㅣㄷ러ㅏ너독발노ㅓㅏㅣㅇㅈ눠ㅏㅣㅇ;ㄴㅊ,ㅠㅡ치ㅡㅋ.,ㅟ
-퉈ㅜㅏ ㅋ/,ㅏㅓㅣㅣㅏㅇㄴ츠,ㅜ라치ㅡㅜ.,"""
-
-    chairman_txt = """애들이 제 말 안들어요 ㅠㅠ
-엉ㅇ어엉융아이ㅓ어ㅕ영ㅇ우유히
-원유ㅠ아ㅓㅏㅗ놓ㅎㄴ짜증ㅇ나아 융
-ㅇ내ㅓㅐㅑㅑㄹ ㅓㅣㅏㄹ옹ㄶㅎ바보
- 멍청ㅎ이 조민혁 메롱 이건 내맘이다"""
-
-    club_chairman_txt = """애들이 제 말 안들어요 ㅠㅠ
-엉ㅇ어엉융아이ㅓ어ㅕ영ㅇ우유히
-원유ㅠ아ㅓㅏㅗ놓ㅎㄴ짜증ㅇ나아 융
-ㅇ내ㅓㅐㅑㅑㄹ ㅓㅣㅏㄹ옹ㄶㅎ바보
-멍청ㅎ이 조민혁 메롱 이건 내맘이다"""
+    club_intro_txt, chairman_txt, club_chairman_txt = sql.get_site()
+    
 
     return render_template(
         "intro_club.html",
@@ -114,7 +100,13 @@ def intro_club():
 
 @views.route("/intro_member", methods=["GET"])
 def intro_member():
-    student_chairman = {"profile" : "광고홍보학과 17 조민혁", "image" : "logo.jpg"}
+    sql = Sql(__db__)
+    chairs = sql.get_chairs()
+    print(chairs["student"])
+    student_chairman = {"profile" : " ".join([chairs["student"][1],
+                                        str(chairs["student"][2]),
+                                        chairs["student"][0]]), 
+                        "image" : sql.get_userpic(chairs["student"][0], chairs["student"][2])}
     student_list = [
         {"profile" : "광고홍보학과 17 조민혁", "image" : "logo.jpg"},
         {"profile" : "광고홍보학과 18 조민혁", "image" : "logo.jpg"},
@@ -123,7 +115,9 @@ def intro_member():
         {"profile" : "광고홍보학과 21 조민혁", "image" : "logo.jpg"}
     ]
 
-    club_chairman = {"profile" : "컴퓨터정보공학 99 홍길동", "image" : "logo.jpg"}
+    club_chairman = {"profile" : " ".join([str(chairs["club_member"][1]),
+                                        chairs["club_member"][0]]), 
+                        "image" : "logo.jpg"}
     clubmember_list = [
         {"profile" : "컴퓨터정보공학 01 홍길동", "image" : "logo.jpg"},
         {"profile" : "컴퓨터정보공학 02 홍길동", "image" : "logo.jpg"},
