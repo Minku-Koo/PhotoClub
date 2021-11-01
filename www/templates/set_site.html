@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./static/css/manager.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <title>청주대학교 사진예술연구회</title>
+
+        <script>
+            $(document).ready(function(){
+                // 메뉴 누르면 나타나고 원래꺼 숨겨짐
+                $(".set_site_inner").hide();
+                $(".set_site_menut_btn").each(function(idx){
+                    $(this).click(function(){
+                        $(".set_site_inner").hide();
+                        $($(".set_site_inner")[idx]).show('slow');
+                    });
+                });
+
+                // 메뉴 누르면 input 제거
+                $(".set_site_menut_btn").click(function(){
+                    $(".insert_line").remove();
+                });
+
+                $(".set_plus_btn").click(function(){
+                    // if click plust button
+                    // add input box   
+                    console.log('click');
+                    tb = $(this).parent('div').find('tbody');
+                    thd = $(this).parent('div').find('thead');
+                    // th 태그만큼 반복해서 input 생성
+                    count =  thd.find("th").length;
+                    
+                    if (tb.find(".insert_line").length>0){
+                        // 삭제
+                        $(".insert_line").remove();
+                    }else{
+                        tb.find('tr').eq(0).before($('<tr>').addClass('insert_line') );
+                        //tb.append( $('<tr>').addClass('insert_line') );
+
+                        for(var j=0;  j<count-1; j++){
+                            $( ".insert_line" ).append(
+                                $("<td><input>")//.addClass( "insert_input" )
+                            );
+                        }
+                        addHtml = "<td><input class='insert_ajax' type='button' value='추가''>"
+                        // addBtn =  $("<input>").addClass("insert_ajax")
+                        //     .attr("type", "button").attr("value","추가")
+                        // btn_str = JSON.stringify(addBtn);
+                        $(".insert_line").append( $.parseHTML(addHtml) );
+                        // $(".insert_line").append( 
+                        //     $("<input>").addClass("insert_ajax")
+                        //     .attr("type", "button").attr("value","추가")
+                        //     );
+                            $(".insert_line").append( "</td>" );
+                            $(".insert_line").append( $("</tr>") )
+                        // add input tag attr
+                    }
+                    
+                });
+            });
+            
+
+        </script>
+    </head>
+    <body>
+        <a href ="/manager">
+            <button class="back_btn" name='back_btn'>
+                관리자 홈
+            </button>
+            </a>
+        <div class="manager_box">
+            <h1>사이트 관리 페이지</h1>
+            <br>
+            <button class="set_site_menut_btn">소개글&인사말</button>
+            <button class="set_site_menut_btn">동아리 연혁</button>
+            <button class="set_site_menut_btn">행사 사진</button>
+            <button class="set_site_menut_btn">FAQ</button>
+        </div>
+
+        <div class="set_site_box">
+            <div class="set_site_inner set_site_box">
+                <table class="site_table">
+                    <caption>소개글&인사말</caption>
+                    <thead>
+                        <th>Poster</th>
+                        <th style="width:300px;">Intro</th>
+                        <th style="width:300px;">Chairman Intro</th>
+                        <th style="width:300px;">Graduated Chairman Intro</th>
+                        <th>Type</th>
+                    </thead>
+                    <tbody>
+                        {% for row in site %}
+                        <td>{{ row }}</td>
+                        {% endfor %}
+                        <td style="width:100px;">
+                            <input type="button" value="수정" class="control_btn">
+                            <input type="button" value="삭제" class="control_btn">
+                        </td>
+                    </tbody>
+                </table>
+            </div>
+            <div class="set_site_inner set_event_box">
+                <button class="set_plus_btn" name="event_plus">추가</button>
+                
+                <table class="event_table">
+                    <caption>동아리 연혁</caption>
+                    <thead>
+                        <th>Year</th>
+                        <th>Title</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                    </thead>
+                    <tbody>
+                        
+                        {% for row in events %}
+                        <tr>
+                        <td>{{ row[2] }}</td>
+                        <td style="width:180px;">{{ row[1] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td style="width:100px;">
+                            <input type="button" value="수정" class="control_btn">
+                            <input type="button" value="삭제" class="control_btn">
+                        </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="set_site_inner set_history_box">
+                <button class="set_plus_btn" name="history_plus">추가</button>
+                <!-- <div class="insert_box"></div> -->
+                <table class="history_table">
+                    <caption>동아리 행사 사진들</caption>
+                    <thead>
+                        <th>Year</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                    </thead>
+                    <tbody>
+                        {% for row in history %}
+                        <tr>
+                        <td>{{ row[3] }}</td>
+                        <td>
+                            <img src="./static/img/history/{{ row[1] }}" 
+                            class="set_history_img">
+                        </td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <!-- <td style="width:200px;">{{ row[5] }}</td> -->
+                        <td style="width:100px;">
+                            <input type="button" value="수정" class="control_btn">
+                            <input type="button" value="삭제" class="control_btn">
+                        </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="set_site_inner set_faq_box">
+                <button class="set_plus_btn" name="faq_plus">추가</button>
+                <!-- <div class="insert_box"></div> -->
+                <table class="faq_table">
+                    <caption>FAQ</caption>
+                    <thead>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Type</th>
+                    </thead>
+                    <tbody>
+                        {% for row in faq_list %}
+                        <tr>
+                            <td style="width:250px;">{{ row[1] }}</td>
+                            <td style="width:250px;">{{ row[2] }}</td>
+                            <td style="width:100px;">
+                                <input type="button" value="수정" class="control_btn">
+                                <input type="button" value="삭제" class="control_btn">
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>
