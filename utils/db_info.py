@@ -3,7 +3,7 @@ host = "localhost"
 db_name = "photoclub"
 port  = 3306
 user = "root"
-pwd = "pwd"
+pwd = "rnalsrn12"
 charset = "utf8"
 
 # Database Table Information
@@ -13,50 +13,50 @@ tables = {
         name VARCHAR(5) NOT NULL,
         major VARCHAR(15) NULL,
         number INT(2) NOT NULL,
-        profile VARCHAR(20) NULL,
+        profile VARCHAR(30) NULL,
         position VARCHAR(10) NULL,
         graduate INT(1) NOT NULL,
         PRIMARY KEY(id)
     """,
 
     "photo" : """
-        id INT(3) NOT NULL,
-        file VARCHAR(20) NOT NULL,
+        id INT(3) NOT NULL AUTO_INCREMENT,
+        user_id INT(5) NOT NULL,
+        file VARCHAR(30) NOT NULL,
         photo_title VARCHAR(20) NULL,
         loc VARCHAR(15) NULL,
-        dsc VARCHAR(30) NULL,
         PRIMARY KEY(id)
     """,
 
     "site" : """
         no INT(4) NOT NULL AUTO_INCREMENT,
-        poster VARCHAR(10) NOT NULL,
-        intro VARCHAR(300) NOT NULL,
+        poster VARCHAR(30) NOT NULL,
+        intro VARCHAR(400) NOT NULL,
+        student_intro VARCHAR(500) NOT NULL,
+        graduated_intro VARCHAR(500) NOT NULL,
         PRIMARY KEY(no)
     """,
 
     "history" : """
         no INT(4) NOT NULL AUTO_INCREMENT,
-        file VARCHAR(20) NOT NULL,
+        file VARCHAR(30) NOT NULL,
         event_title VARCHAR(30) NOT NULL,
         year INT(4) NULL,
         loc VARCHAR(15) NULL,
-        dsc VARCHAR(30) NULL,
         PRIMARY KEY(no)
     """,
 
     "club_event" : """
         no INT(4) NOT NULL AUTO_INCREMENT,
-        title VARCHAR(15) NOT NULL,
+        title VARCHAR(200) NOT NULL,
         year INT(4) NOT NULL,
-        loc VARCHAR(15) NULL,
         PRIMARY KEY(no)
     """,
 
     "faq" : """
         no INT(4) NOT NULL AUTO_INCREMENT,
-        question VARCHAR(80) NOT NULL,
-        answer VARCHAR(100) NOT NULL,
+        question VARCHAR(200) NOT NULL,
+        answer VARCHAR(300) NOT NULL,
         PRIMARY KEY(no)
     """,
 }
