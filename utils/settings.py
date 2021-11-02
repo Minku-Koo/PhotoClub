@@ -5,6 +5,7 @@
 '''
 
 import db_info
+from file2db import *
 import pymysql
 
 # Connect Database and Get Cursor
@@ -16,7 +17,7 @@ def getCursor():
         charset = db_info.charset,
         port = 3306
     )
-    return db.cursor()
+    return db, db.cursor()
 
 # Check DB exist
 def checkDB(cursor, db_name):
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     # Get DB name
     db_name = db_info.db_name
     # Connect DB and Get cursor
-    cursor = getCursor()
+    db_, cursor = getCursor()
     
     # Create DB if not DB exist
     if not checkDB(cursor, db_name):
@@ -77,4 +78,11 @@ if __name__ == "__main__":
         if table == "site":
             # Input Homepage Initial Data
             setInitData(cursor)
-    
+
+    # storage 파일이 존재한다면, file name 통해서 db input
+    member_to_db(db_)
+    club_event_to_db(db_)
+    profile_to_db(db_)
+    photo_to_db(db_)
+    # text file이 존재한다면, readlines to db
+    db_.commit()
