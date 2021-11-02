@@ -25,12 +25,12 @@ class Sql():
                     position, 
                     graduate):
 
-        sql = """
-        INSERT INTO user (name, major, number, profile, position, graduate) 
-        values ('%s', '%s', %d, '%s', '%s' , %d);
+        query = """
+        INSERT INTO user (name, major, number, profile, position, graduate)  
+        VALUES (%s, %s, %s, %s, %s , %s);
         """
-
-        self.__cursor__.execute( sql, (
+        
+        self.__cursor__.execute( query, (
                                     name, 
                                     major, 
                                     number, 
@@ -41,40 +41,147 @@ class Sql():
 
         return 
 
-    def get_username(self, id):
+    def check_user_exist(self, number, name):
+        query = """
+        SELECT * FROM user
+        WHERE number=%s  AND name=%s;
+        """
+        self.__cursor__.execute( query, ( number, name) )
+        if self.__cursor__.fetchone(): 
+            return True
+        return False
+
+    def update_user(self, number, major, name, profile):
+        query = """
+        UPDATE user SET major=%s , profile=%s 
+        WHERE number=%s  AND name=%s;
+        """
+        self.__cursor__.execute( query, ( major,  profile, number, name ) )
+        return
+
+    def insert_photo(self, user_id, file, title="", loc=""):
+        query = """
+        INSERT INTO photo (user_id, file, photo_title, loc) 
+        values (%s, %s, %s, %s);
+        """
+
+        self.__cursor__.execute( query, (
+                                    user_id, 
+                                    file, 
+                                    title, 
+                                    loc
+                                ) )
+        return 
+
+    def get_fresh_student(self):
+        query = """
+        SELECT MAX(id) FROM user ;
+        """
+        self.__cursor__.execute(query)
+        return int(self.__cursor__.fetchone()[0])
+    
+    def get_user_name_num(self, user_id):
+        query = """
+        SELECT name, number, graduate FROM user where id= %s ;
+        """
+        self.__cursor__.execute( query, (user_id))
+        # print(self.__cursor__.fetchone())
+        return self.__cursor__.fetchone()
+
+    def get_user_id(self, number, name):
+        query = """
+        SELECT id FROM user where number= %s AND name=%s ;
+        """
+        self.__cursor__.execute( query, (number, name))
+        #print(self.__cursor__.fetchone())
+        return self.__cursor__.fetchone()[0]
+
+    def get_user_photo_info(self):
+        # 재학생 신입생 동호인
+        student, freshman, clubman = [], [], []
+        fresh_num = self.get_fresh_student()
+
+        query = """
+        SELECT user_id, file FROM photo ;
+        """
+
+        self.__cursor__.execute(query)
+        for user_id, filename in self.__cursor__.fetchall():
+            data = {"artist":"" , "image":""}
+            #print("user_id",user_id)
+            name, num, graduate = self.get_user_name_num(user_id)
+            data["image"] = filename
+            data["artist"] = "th ".join( [str(num), name] )
+            if num==fresh_num: # 신입생
+                freshman.append( data )
+            elif graduate == 1: #동호인
+                clubman.append( data )
+            else:
+                student.append( data )
+        
+        return (student, freshman, clubman)
+    
+    
+    def insert_club_event(self, title, year):
         sql = """
+        INSERT INTO club_event (title, year) 
+        values (%s, %s);
+        """
+        self.__cursor__.execute(sql, (title, int(year)))
+        return 
+
+    def get_username(self, id):
+        query = """
         SELECT name FROM user WHERE id= %s ;
         """
 
-        self.__cursor__.execute( sql, (id))
+        self.__cursor__.execute( query, (id))
         return self.__cursor__.fetchone()[-1]
 
-    def get_userpic(self, id):
-        sql = """
-        SELECT profile FROM user WHERE id= %s ;
+    def get_chairs(self):
+        result = {"student":[],"club_member":[]}
+        query = """
+        SELECT name, major, number FROM user WHERE position='chair' AND graduate=0 ;
+        """
+        self.__cursor__.execute( query)
+        result["student"] = list(self.__cursor__.fetchone())
+
+        query = """
+        SELECT name, number FROM user WHERE position='chair' AND graduate=1 ;
+        """
+        self.__cursor__.execute( query)
+        result["club_member"] = list(self.__cursor__.fetchone())
+
+        return result
+
+    def get_userpic(self, name, number):
+        query = """
+        SELECT profile FROM user WHERE name= %s AND number=%s ;
         """
 
-        self.__cursor__.execute( sql, (id))
+        self.__cursor__.execute( query, (name, number))
         return self.__cursor__.fetchone()[-1]
 
-    def update_site(self, poster, intro):
-        sql = """
+    def update_site(self, poster, intro, student_intro, grad_intro):
+        query = """
         UPDATE site SET (poster='%s',
-                     intro='%s') 
-        values ('%s', '%s');
+                     intro='%s',
+                     student_intro='%s',
+                     graduated_intro='%s') 
+        WHERE no=1;
         """
 
-        self.__cursor__.execute( sql, (
-                                    poster, intro
+        self.__cursor__.execute( query, (
+                                    poster, intro, student_intro, grad_intro
                                 ) )
         return 
 
     def get_site(self):
         sql = """
-        SELECT  * FROM site;
+        SELECT  intro, student_intro, graduated_intro FROM site;
         """
         self.__cursor__.execute(sql)
-        return self.__cursor__.fetchall()[0]
+        return self.__cursor__.fetchone()
 
     def get_all(self, table):
         sql = f"""
