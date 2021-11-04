@@ -10,6 +10,12 @@
 
 <div class="club_history_list_box">
     {% for history in club_history_list %}
+        {% for k, v in history.items() %}
+        <div class = "date_title_box">
+            <p>{{k}}</p>
+        </div>
+        {% endfor %}
+
         <div class = "history_box">
             {% for k, v in history.items() %}
             <p class = "title">{{k}}</p>
@@ -18,6 +24,7 @@
                     <img src="/static/img/club_history/{{img}}">
                 </div>
                 {% endfor %}
+                {% break %}
             {% endfor %}
         </div>
     {% endfor %}

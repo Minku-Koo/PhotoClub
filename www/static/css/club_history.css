@@ -10,6 +10,22 @@ body{
     text-align: justify;
 }
 
+.date_title_box{
+    display: inline-block;
+    width: 23vw;
+    height: 4vw;
+    margin: 25px 0.8vw 40px;
+    text-align: center;
+    color: var(--black-color-1);
+    font-size: 1.4vw;
+    font-weight: bold;
+    font-family: '나눔스퀘어EB';
+    line-height: 4vw;
+
+    box-shadow: 2px 4px 3px rgba(100, 100, 100, 0.2), -2px 0px 3px rgba(100, 100, 100, 0.2);
+    cursor: pointer;
+}
+
 .history_box{
     width: fit-content;
     margin: 3vw auto 9vw;
