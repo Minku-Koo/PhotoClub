@@ -5,6 +5,39 @@
 <script>
     $(document).ready(function(){
         $(".menu_nav li").eq(3).css("color", "var(--black-color-1)");
+        $(".date_title_box:eq(0)").css("background", "var(--gray-color-4)");
+        $(".date_title_box:eq(0)").css("font-size", "1.6vw");
+        
+        $(".history_box").hide();
+
+        $(".date_title_box").each(function(idx){
+            $(this).click(function(){
+                $(".history_box").hide("normal");
+                $(".history_box:eq("+idx+")").show("normal");
+                
+                $(".date_title_box").css("background", "none");
+                $(".date_title_box").css("font-size", "1.4vw");
+                
+                $(".date_title_box:eq("+idx+")").css("background", "var(--gray-color-4)");
+                $(".date_title_box:eq("+idx+")").css("font-size", "1.6vw");
+            });
+        });
+
+        $(".history_box:eq(0)").show();
+
+        $(".piece_title_box").click(function(){
+            $(".piece_box").hide("normal");
+
+            if( $(this).is( $($(".piece_title_box")[0]) )){
+                $(".student").show("normal");
+            }
+            else if( $(this).is( $($(".piece_title_box")[1]) )){
+                $(".freshman").show("normal");
+            }
+            else if( $(this).is( $($(".piece_title_box")[2]) )){
+                $(".clubman").show("normal");
+            }
+        });
     })
 </script>
 
@@ -15,17 +48,18 @@
             <p>{{k}}</p>
         </div>
         {% endfor %}
+    {% endfor %}
 
-        <div class = "history_box">
+    {% for history in club_history_list %}
+        {% set date_index = loop.index0 %}
+        <div class = "history_box history_box_{{date_index}}">
             {% for k, v in history.items() %}
-            <p class = "title">{{k}}</p>
                 {% for img in v %}
                 <div class = "history_img_box">
                     <img src="/static/img/club_history/{{img}}">
                 </div>
                 {% endfor %}
-                {% break %}
-            {% endfor %}
+           {% endfor %}
         </div>
     {% endfor %}
 </div>
