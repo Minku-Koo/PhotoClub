@@ -154,6 +154,22 @@ class Sql():
 
         return result
 
+    def get_other_users(self):
+        result = {"student":[],"club_member":[]}
+        query = """
+        SELECT name, major, number FROM user WHERE position!='chair' AND graduate=0 ;
+        """
+        self.__cursor__.execute( query)
+        result["student"] = list(self.__cursor__.fetchall())
+
+        query = """
+        SELECT name, number FROM user WHERE position!='chair' AND graduate=1 ;
+        """
+        self.__cursor__.execute( query)
+        result["club_member"] = list(self.__cursor__.fetchall())
+
+        return result
+
     def get_userpic(self, name, number):
         query = """
         SELECT profile FROM user WHERE name= %s AND number=%s ;

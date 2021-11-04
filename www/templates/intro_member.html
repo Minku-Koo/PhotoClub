@@ -19,6 +19,27 @@
             }
         });
     });
+
+    $(function() {
+    $(".member_box img").each( function(i, ele){
+        var uri = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+         
+        uri = "/static/img/members/logo.jpg";
+	//이미 load된 이미지들을 처리하기 위한 코드
+        if( ele.src != '' && ele.complete == true && ele.naturalWidth == 0 ){
+            $(this).attr("src", uri );
+            // $(this).attr("width", "150px");
+        }
+        //load되지 않은 이미지들은 load와 error 이벤트를 추가해준다
+        $(this).load( function(n){
+            //do nothing
+        })
+        .error( function(){
+            $(this).attr("src", uri );
+            // $(this).attr("width", "150px");
+        });
+	});
+});
 </script>
 
 <div class="member_list_box">
@@ -53,7 +74,6 @@
 
     {% for member in clubmember_list %}
         <div class = "member_box clubmember">
-            <img src="/static/img/members/{{member['image']}}">
             <p>{{member['profile']}}</p>
         </div>
     {% endfor %}

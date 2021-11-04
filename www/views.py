@@ -102,27 +102,34 @@ def intro_club():
 def intro_member():
     sql = Sql(__db__)
     chairs = sql.get_chairs()
-    print(chairs["student"])
-    student_chairman = {"profile" : " ".join([chairs["student"][1],
+    other_users = sql.get_other_users()
+
+
+    student_chairman = {
+                        "profile" : " ".join([chairs["student"][1],
                                         str(chairs["student"][2]),
                                         chairs["student"][0]]), 
-                        "image" : sql.get_userpic(chairs["student"][0], chairs["student"][2])}
+                        "image" : sql.get_userpic(chairs["student"][0], chairs["student"][2])
+                        }
     student_list = [
-        {"profile" : "광고홍보학과 17 조민혁", "image" : "logo.jpg"},
-        {"profile" : "광고홍보학과 18 조민혁", "image" : "logo.jpg"},
-        {"profile" : "광고홍보학과 19 조민혁", "image" : "logo.jpg"},
-        {"profile" : "광고홍보학과 20 조민혁", "image" : "logo.jpg"},
-        {"profile" : "광고홍보학과 21 조민혁", "image" : "logo.jpg"}
+        {
+            "profile" : " ".join([user[1],
+                            str(user[2]),
+                            user[0]]), 
+            "image" : sql.get_userpic(user[0], user[2])
+        }
+        for user in other_users["student"]
     ]
+    print(f'other_users["club_member"] : {other_users["club_member"]}')
 
     club_chairman = {"profile" : " ".join([str(chairs["club_member"][1]),
                                         chairs["club_member"][0]]), 
                         "image" : "logo.jpg"}
     clubmember_list = [
-        {"profile" : "컴퓨터정보공학 01 홍길동", "image" : "logo.jpg"},
-        {"profile" : "컴퓨터정보공학 02 홍길동", "image" : "logo.jpg"},
-        {"profile" : "컴퓨터정보공학 03 홍길동", "image" : "logo.jpg"},
-        {"profile" : "컴퓨터정보공학 04 홍길동", "image" : "logo.jpg"}
+        {
+            "profile" : " ".join([str(user[1]), user[0]])
+        }
+        for user in other_users["club_member"]
     ]
 
     return render_template(

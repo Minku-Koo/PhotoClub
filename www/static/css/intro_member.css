@@ -33,18 +33,21 @@ body{
     position: relative;
     display: inline-block;
     width: 16vw;
-    height: 24vw;
+    height: 20vw;
     margin: 2vw 0.8vw 3vw;
     text-align: center;
+}
+.clubmember{
+    height: 2vw;
 }
 .member_box img{
     position: absolute;
     max-width: 16vw;
-    max-height: 24vw;
+    height: 18vw;
     width: auto;
-    height: 15vw;
     top: 50%;
     transform: translate(-50%, -50%);
+    object-fit: cover;
     /* bottom: 5%;
     transform: translateX(-50%); */
 
