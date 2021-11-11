@@ -38,8 +38,9 @@ body{
     text-align: center;
 }
 .clubmember{
-    height: 2vw;
+    height: 3vw;
 }
+
 .member_box img{
     position: absolute;
     max-width: 16vw;
