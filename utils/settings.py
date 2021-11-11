@@ -83,6 +83,11 @@ if __name__ == "__main__":
     member_to_db(db_)
     club_event_to_db(db_)
     profile_to_db(db_)
+    db_.commit()
+    set_chair(db_)
     photo_to_db(db_)
+    faq_to_db(db_)
+    history_to_db(db_)
+    intro_to_db(db_)
     # text file이 존재한다면, readlines to db
     db_.commit()

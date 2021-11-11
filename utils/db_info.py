@@ -31,18 +31,17 @@ tables = {
     "site" : """
         no INT(4) NOT NULL AUTO_INCREMENT,
         poster VARCHAR(30) NOT NULL,
-        intro VARCHAR(400) NOT NULL,
-        student_intro VARCHAR(500) NOT NULL,
-        graduated_intro VARCHAR(500) NOT NULL,
+        intro VARCHAR(700) NOT NULL,
+        student_intro VARCHAR(700) NOT NULL,
+        graduated_intro VARCHAR(700) NOT NULL,
         PRIMARY KEY(no)
     """,
 
     "history" : """
         no INT(4) NOT NULL AUTO_INCREMENT,
-        file VARCHAR(30) NOT NULL,
-        event_title VARCHAR(30) NOT NULL,
+        file VARCHAR(50) NOT NULL,
+        event_title VARCHAR(40) NOT NULL,
         year INT(4) NULL,
-        loc VARCHAR(15) NULL,
         PRIMARY KEY(no)
     """,
 
