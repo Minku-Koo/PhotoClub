@@ -79,12 +79,15 @@ def intro_club():
 
     chairman_info = "재학생 회장"
     chairman_name = chairs["student"][0]
+    chairman_photo = sql.get_userpic(chairs["student"][0], chairs["student"][2])
 
     club_chairman_info = "동호인 회장"
     club_chairman_name = chairs["club_member"][0]
+    club_chairman_photo = "logo.png"
 
-    club_intro_txt, chairman_txt, club_chairman_txt = sql.get_site()
-    
+    _, club_intro_txt, chairman_txt, club_chairman_txt = sql.get_site()
+    print("_, club_intro_txt, chairman_txt, club_chairman_txt")
+    print(_, club_intro_txt, chairman_txt, club_chairman_txt)
 
     return render_template(
         "intro_club.html",
@@ -93,8 +96,10 @@ def intro_club():
         club_chairman_txt = club_chairman_txt,
         chairman_info = chairman_info,
         chairman_name = chairman_name,
+        chairman_photo = chairman_photo,
         club_chairman_info = club_chairman_info,
-        club_chairman_name = club_chairman_name
+        club_chairman_name = club_chairman_name,
+        club_chairman_photo = club_chairman_photo
     )
 
 
@@ -120,7 +125,7 @@ def intro_member():
         }
         for user in other_users["student"]
     ]
-    print(f'other_users["club_member"] : {other_users["club_member"]}')
+    #print(f'other_users["club_member"] : {other_users["club_member"]}')
 
     club_chairman = {"profile" : " ".join([str(chairs["club_member"][1]),
                                         chairs["club_member"][0]]), 
@@ -142,6 +147,33 @@ def intro_member():
 
 @views.route("/club_history", methods=["GET"])
 def club_history():
+    sql = Sql(__db__)
+    history = sql.get_history()
+    club_history_list = [
+        {"년도 미상":[]},
+        {"90년대 이전":[]},
+        {"1990년대":[]},
+        {"2000년대":[]},
+        {"2010년대":[]},
+        {"2020년대":[]},
+    ]
+    for file, year, title in history:
+        if year == 0:
+            club_history_list[0]["년도 미상"].append(file)
+        elif year <1990:
+            club_history_list[1]["90년대 이전"].append(file)
+        elif year <2000:
+            club_history_list[2]["1990년대"].append(file)
+        elif year <2010:
+            club_history_list[3]["2000년대"].append(file)
+        elif year <2020:
+            club_history_list[4]["2010년대"].append(file)
+        elif year <2030:
+            club_history_list[5]["2020년대"].append(file)
+        else:
+            pass
+    print(club_history_list)
+    '''
     club_history_list = [
         {"2021년도" : [
             "logo.jpg",
@@ -208,7 +240,7 @@ def club_history():
             ]
         }
     ]
-
+    ''' 
     return render_template(
         "club_history.html",
         club_history_list = club_history_list
@@ -217,6 +249,12 @@ def club_history():
 
 @views.route("/faq", methods=["GET"])
 def faq():
+    sql = Sql(__db__)
+    faq_db = sql.get_faq()
+    faq_list = []
+    for q, a in faq_db:
+        faq_list.append( {"q":q, "a":a} )
+    '''
     faq_list = [
         {"q" : "조민혁이 누구인가요?", "a" : "회장입니다."},
         {"q" : "회비는 언제 내나요? 방학에도 내나요???", "a" : "방학을 제외한 학기 중에 월 1일마다 냅니다."},
@@ -224,7 +262,8 @@ def faq():
         {"q" : "회비는 언제 내나요? 방학에도 내나요???", "a" : "방학을 제외한 학기 중에 월 1일마다 냅니다."},
         {"q" : "회비는 언제 내나요? 방학에도 내나요???", "a" : "방학을 제외한 학기 중에 월 1일마다 냅니다."}
     ]
-
+    '''
+    # print(faq_list)
     return render_template(
         "faq.html",
         faq_list = faq_list
@@ -233,6 +272,30 @@ def faq():
 
 @views.route("/brief_history", methods=["GET"])
 def brief_history():
+    sql = Sql(__db__)
+    history_list = [
+        {"2020년대":[]},
+        {"2010년대":[]},
+        {"2000년대":[]},
+        {"1990년대":[]},
+        {"90년대 이전":[]},
+    ]
+
+    for title, year in sql.get_club_event():
+        content = " ".join([str(year), title])
+        if year <1990:
+            history_list[4]["90년대 이전"].append(content)
+        elif year <2000:
+            history_list[3]["1990년대"].append(content)
+        elif year <2010:
+            history_list[2]["2000년대"].append(content)
+        elif year <2020:
+            history_list[1]["2010년대"].append(content)
+        elif year <2030:
+            history_list[0]["2020년대"].append(content)
+        else:
+            pass
+    '''
     history_list = [
         {"1970년대" : [
             "1977 사진예술연구회 창립 / 초대 지도교수",
@@ -247,7 +310,7 @@ def brief_history():
             ]
         }
     ]
-
+    '''
     return render_template(
         "brief_history.html",
         history_list = history_list
