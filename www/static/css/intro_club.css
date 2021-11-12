@@ -80,16 +80,30 @@ body{
 }
 
 .chairman_box{
+    display: flex;
     position: relative;
-    overflow: auto;
     margin-bottom: 5vw;
     padding: 0vw 3vw;
+    justify-content: space-between;
 }
-.chairman_box div{
-    position: absolute;
-    right: 3vw;
-    bottom: 0;
+.chairman_box > div{
+    display: inline-block;
+    width: 32vw;
 }
+.chairman_box > div > div{
+    height: fit-content;
+    margin-top: 1vw;
+
+    font-size: 1vw;
+    line-height: 1.8vw;
+    font-family: '나눔스퀘어R';
+    color: var(--gray-color-1);
+    text-align: right;
+
+    word-break: keep-all;
+    white-space: pre-line;
+}
+
 .chairman_box p{
     text-align: right;
 }
@@ -105,29 +119,36 @@ body{
     font-family: 'score5';
 }
 .chairman_box img{
-    float: left;
+    display: inline-block;
     width: 25vw;
     height: auto;
+    vertical-align: top;
+    object-fit: contain;
+    object-position: top left;
 }
-.chairman_box pre{
+
+.club_chairman_box{
+    display: flex;
+    position: relative;
+    padding: 0vw 3vw;
+    justify-content: space-between;
+    text-align: justify;
+}
+.club_chairman_box > div{
+    display: inline-block;
+    width: 32vw;
+    vertical-align: top;
+}
+.club_chairman_box > div > div{
     margin-top: 1vw;
 
     font-size: 1vw;
     line-height: 1.8vw;
     font-family: '나눔스퀘어R';
     color: var(--gray-color-1);
-    text-align: right;
-}
 
-.club_chairman_box{
-    position: relative;
-    overflow: auto;
-    padding: 0vw 3vw;
-}
-.club_chairman_box div{
-    position: absolute;
-    left: 3vw;
-    bottom: 0;
+    word-break: keep-all;
+    white-space: pre-line;
 }
 .club_chairman_box span:nth-child(1){
     margin-right: 0.5vw;
@@ -141,15 +162,12 @@ body{
     font-family: 'score5';
 }
 .club_chairman_box img{
-    float: right;
+    display: inline-block;
     width: 25vw;
     height: auto;
+    vertical-align: top;
+    object-fit: contain;
+    object-position: top right;
 }
-.club_chairman_box pre{
-    margin-top: 1vw;
-
-    font-size: 1vw;
-    line-height: 1.8vw;
-    font-family: '나눔스퀘어R';
-    color: var(--gray-color-1);
+.club_chairman_box div{
 }
