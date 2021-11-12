@@ -171,7 +171,8 @@ def club_history():
             club_history_list[5]["2020년대"].append(file)
         else:
             pass
-    print(club_history_list)
+    # print(club_history_list)
+    club_history_list.reverse()
     '''
     club_history_list = [
         {"2021년도" : [

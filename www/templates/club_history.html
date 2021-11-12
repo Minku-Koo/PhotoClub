@@ -44,11 +44,7 @@
 <div class="club_history_list_box">
     {% for history in club_history_list %}
         {% for k, v in history.items() %}
-        <!-- {% if v %} -->
-        <div class = "date_title_box">
-            <p>{{k}}</p>
-        </div>
-        <!-- {% endif %} -->
+        <div class = "date_title_box"><p>{{k}}</p></div>
         {% endfor %}
     {% endfor %}
 

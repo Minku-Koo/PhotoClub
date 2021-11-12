@@ -8,6 +8,7 @@ body{
     width: 75vw;
     margin: 4vw auto;
     text-align: justify;
+    text-align-last: justify;
 }
 
 .date_title_box{
@@ -15,6 +16,7 @@ body{
     width: 23vw;
     height: 4vw;
     margin: 25px 0.8vw 40px;
+
     text-align: center;
     color: var(--black-color-1);
     font-size: 1.4vw;
@@ -25,6 +27,11 @@ body{
     box-shadow: 2px 4px 3px rgba(100, 100, 100, 0.2), -2px 0px 3px rgba(100, 100, 100, 0.2);
     cursor: pointer;
 }
+.date_title_box p{
+    text-align: center;
+    text-align-last: center;
+}
+
 
 .history_box{
     width: fit-content;
@@ -42,13 +49,16 @@ body{
     width: 23vw;
     height: 13vw;
     margin: 0.8vw;
-    background: white;
+    /* background: white; */
     text-align: center;
+    text-align-last: center;
 }
 .history_img_box img{
     width: auto;
     max-width: 23vw;
     height: 13vw;
+    object-fit: cover;
+    object-position: center;
 }
 .history_img_box p{
     margin: 10px auto;

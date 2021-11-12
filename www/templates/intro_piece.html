@@ -2,6 +2,11 @@
 {% block content %}
 <link rel="stylesheet" href="/static/css/intro_piece.css">
 
+<!-- bauettebox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" integrity="sha512-7KzSt4AJ9bLchXCRllnyYUDjfhO2IFEWSa+a5/3kPGQbr+swRTorHQfyADAhSlVHCs1bpFdB1447ZRzFyiiXsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+<!---------------->
+
 <script>
     $(document).ready(function(){
         $(".freshman").hide();
@@ -21,6 +26,10 @@
                 $(".clubman").show("normal");
             }
         });
+        
+        baguetteBox.run('.piece_box', {
+            noScrollbars: true
+        });
     })
 </script>
 
@@ -38,9 +47,17 @@
         <p>동호인</p>
     </div>
 
+
+    <!-- <div class='reduce_img_baguette'>
+        <a id='a_reduce_input_1' class='a_reduce_input' href="#" data-caption="Image caption">
+            <img class='preview_btn' src="{{ url_for('static', filename='icon/magnifying-glass.png') }}">
+        </a> -->
+
     {% for piece in piece_list_student %}
         <div class = "piece_box student">
-            <img src="/static/img/pieces/{{piece['image']}}">
+            <a href='/static/img/pieces/{{piece["image"]}}' data-caption="Image caption">
+                <img src="/static/img/pieces/{{piece['image']}}">
+            </a>
             <p>{{piece['artist']}}</p>
         </div>
     {% endfor %}

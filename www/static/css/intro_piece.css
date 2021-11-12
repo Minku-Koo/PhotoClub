@@ -57,3 +57,9 @@ body{
     font-size: 0.9vw;
     font-family: 'score6';
 }
+
+/* 미리보기시 이미지 크기 */
+#baguetteBox-overlay .full-image img{
+    /* max-width: 80% !important;
+    max-height: 80% !important; */
+}
