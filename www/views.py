@@ -76,14 +76,14 @@ def intro_piece():
 def intro_club():
     sql = Sql(__db__)
     chairs = sql.get_chairs()
-
+    # print(chairs)
     chairman_info = "재학생 회장"
     chairman_name = chairs["student"][0]
     chairman_photo = sql.get_userpic(chairs["student"][0], chairs["student"][2])
 
     club_chairman_info = "동호인 회장"
     club_chairman_name = chairs["club_member"][0]
-    club_chairman_photo = "logo.png"
+    #club_chairman_photo = sql.get_userpic(chairs["club_member"][0], chairs["club_member"][1])
 
     _, club_intro_txt, chairman_txt, club_chairman_txt = sql.get_site()
     print("_, club_intro_txt, chairman_txt, club_chairman_txt")
@@ -98,8 +98,7 @@ def intro_club():
         chairman_name = chairman_name,
         chairman_photo = chairman_photo,
         club_chairman_info = club_chairman_info,
-        club_chairman_name = club_chairman_name,
-        club_chairman_photo = club_chairman_photo
+        club_chairman_name = club_chairman_name
     )
 
 
