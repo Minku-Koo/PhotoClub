@@ -37,8 +37,13 @@ body{
     margin: 2vw 0.8vw 3vw;
     text-align: center;
 }
+
+.student{
+    font-size: 0.9vw;
+}
 .clubmember{
     height: 3vw;
+    font-size: 1.5vw;
 }
 
 .member_box img{
@@ -62,7 +67,6 @@ body{
     bottom: -1.5vw;
 
     color: var(--black-color-1);
-    font-size: 0.9vw;
     font-family: 'score6';
     font-family: '나눔스퀘어EB';
 }
@@ -77,6 +81,9 @@ body{
 }
 .chairman p{
     font-size: 1.1vw;
+}
+.chairman p:not(.student p){
+    font-size: 1.8vw;
 }
 .chairman p:first-child{
     height: fit-content;
