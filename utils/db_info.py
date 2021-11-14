@@ -20,11 +20,9 @@ tables = {
     """,
 
     "photo" : """
-        id INT(3) NOT NULL AUTO_INCREMENT,
+        id INT(4) NOT NULL AUTO_INCREMENT,
         user_id INT(5) NOT NULL,
-        file VARCHAR(30) NOT NULL,
-        photo_title VARCHAR(20) NULL,
-        loc VARCHAR(15) NULL,
+        file VARCHAR(40) NOT NULL,
         PRIMARY KEY(id)
     """,
 
