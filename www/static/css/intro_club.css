@@ -73,8 +73,9 @@ body{
 
 .club_intro_txt{
     margin: 5vw 3vw;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     line-height: 2vw;
+    white-space: pre-wrap; 
     font-family: '나눔스퀘어R';
     color: var(--gray-color-1);
 }
