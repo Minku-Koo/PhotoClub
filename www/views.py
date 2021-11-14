@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify, Blueprint, redirect,
 import os, pymysql
 import utils.db_info as info
 from utils.db import Sql
+import datetime
 
 views = Blueprint("server", __name__)
 
@@ -15,56 +16,18 @@ __db__ = pymysql.connect(
 
 @views.route("/", methods=["GET"])
 def index():
-    print("CJU Photo Club Flask Server")
+    if datetime.date.today().month < 10:
+        chapter = datetime.date.today().year - 1978
+    else:
+        chapter = datetime.date.today().year - 1977
     session["admin"] = False
-    return render_template("index.html")
+    return render_template("index.html", chapter = chapter)
 
 @views.route("/intro_piece", methods=["GET"])
 def intro_piece():
     sql = Sql(__db__)
     piece_list_student, piece_list_freshman, piece_list_clubman = sql.get_user_photo_info()
-    # poster, intro_text, student, graduated = sql.get_last('photo')
     
-    # #추후에 user에서 회장 찾아서 입력
-    # name = sql.get_username(1)
-    # profile = sql.get_userpic(1)
-
-    # print(f"name : {name}")
-    # print(f"profile : {profile}")
-    '''
-    piece_list_student = [
-        {"artist" : "42th 일지우", "image" : "logo.jpg"},
-        {"artist" : "41th 이지우", "image" : "logo.jpg"},
-        {"artist" : "41th 삼지우", "image" : "logo.jpg"},
-        {"artist" : "42th 사지우", "image" : "logo.jpg"},
-        {"artist" : "41th 오지우", "image" : "logo.jpg"},
-        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
-        {"artist" : "42th 이지우", "image" : "logo.jpg"},
-        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
-        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
-        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
-        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
-        {"artist" : "41th 조민혁", "image" : "logo.jpg"},
-        {"artist" : "41th 끝지우", "image" : "logo.jpg"}
-    ]
-
-    piece_list_freshman = [
-        {"artist" : "43th 새내기", "image" : "logo.jpg"},
-        {"artist" : "43th 새내기", "image" : "logo.jpg"},
-        {"artist" : "43th 새내기", "image" : "logo.jpg"},
-        {"artist" : "43th 새내기", "image" : "logo.jpg"},
-        {"artist" : "43th 새내기", "image" : "logo.jpg"},
-        {"artist" : "43th 새내기", "image" : "logo.jpg"}
-    ]
-
-    piece_list_clubman = [
-        {"artist" : "1th 일동호", "image" : "logo.jpg"},
-        {"artist" : "2th 이동호", "image" : "logo.jpg"},
-        {"artist" : "3th 삼동호", "image" : "logo.jpg"},
-        {"artist" : "10th 십동호", "image" : "logo.jpg"}
-    ]
-    '''
-
     return render_template(
         "intro_piece.html",
         piece_list_student = piece_list_student,
@@ -86,11 +49,12 @@ def intro_club():
     #club_chairman_photo = sql.get_userpic(chairs["club_member"][0], chairs["club_member"][1])
 
     _, club_intro_txt, chairman_txt, club_chairman_txt = sql.get_site()
-    print("_, club_intro_txt, chairman_txt, club_chairman_txt")
-    print(_, club_intro_txt, chairman_txt, club_chairman_txt)
+    
+    now_year = datetime.date.today().year
 
     return render_template(
         "intro_club.html",
+        year = now_year,
         club_intro_txt = club_intro_txt,
         chairman_txt = chairman_txt,
         club_chairman_txt = club_chairman_txt,
@@ -158,89 +122,22 @@ def club_history():
     ]
     for file, year, title in history:
         if year == 0:
-            club_history_list[0]["년도 미상"].append(file)
+            club_history_list[0]["년도 미상"].append([file, year, title])
         elif year <1990:
-            club_history_list[1]["90년대 이전"].append(file)
+            club_history_list[1]["90년대 이전"].append([file, year, title])
         elif year <2000:
-            club_history_list[2]["1990년대"].append(file)
+            club_history_list[2]["1990년대"].append([file, year, title])
         elif year <2010:
-            club_history_list[3]["2000년대"].append(file)
+            club_history_list[3]["2000년대"].append([file, year, title])
         elif year <2020:
-            club_history_list[4]["2010년대"].append(file)
+            club_history_list[4]["2010년대"].append([file, year, title])
         elif year <2030:
-            club_history_list[5]["2020년대"].append(file)
+            club_history_list[5]["2020년대"].append([file, year, title])
         else:
             pass
     # print(club_history_list)
     club_history_list.reverse()
-    '''
-    club_history_list = [
-        {"2021년도" : [
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg"
-            ]
-        },
-        {"77년도 ~ 00년도" : [
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg"
-            ]
-        },
-        {"00년도 ~ 10년도" : [
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg"
-            ]
-        },
-        {"10년도 ~ 20년도" : [
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg",
-            "logo.jpg"
-            ]
-        }
-    ]
-    ''' 
+    
     return render_template(
         "club_history.html",
         club_history_list = club_history_list
@@ -254,16 +151,8 @@ def faq():
     faq_list = []
     for q, a in faq_db:
         faq_list.append( {"q":q, "a":a} )
-    '''
-    faq_list = [
-        {"q" : "조민혁이 누구인가요?", "a" : "회장입니다."},
-        {"q" : "회비는 언제 내나요? 방학에도 내나요???", "a" : "방학을 제외한 학기 중에 월 1일마다 냅니다."},
-        {"q" : "회비는 언제 내나요? 방학에도 내나요???", "a" : "방학을 제외한 학기 중에 월 1일마다 냅니다."},
-        {"q" : "회비는 언제 내나요? 방학에도 내나요???", "a" : "방학을 제외한 학기 중에 월 1일마다 냅니다."},
-        {"q" : "회비는 언제 내나요? 방학에도 내나요???", "a" : "방학을 제외한 학기 중에 월 1일마다 냅니다."}
-    ]
-    '''
-    # print(faq_list)
+   
+   
     return render_template(
         "faq.html",
         faq_list = faq_list
@@ -295,30 +184,12 @@ def brief_history():
             history_list[0]["2020년대"].append(content)
         else:
             pass
-    '''
-    history_list = [
-        {"1970년대" : [
-            "1977 사진예술연구회 창립 / 초대 지도교수",
-            "1978 제 1회 사진전시회 / 하계워크샵 (설악산)",
-            "1979 제 2회 사진전시회 / 하계워크샵 (안면도) / 동계워크샵"
-            ]
-        },
-        {"1980년대" : [
-            "1980 제 3회 사진전시화 / 하계워크샵 (소백산)",
-            "1981 제 4회 사진전시회 / 2대 지도교수 김두영교수님 / 하계워크샵 (남해안 일대)",
-            "1982 제 5회 사진전시회 / 3대 지도교수 정상진교수님 / 하계워크샵 (제주도)"
-            ]
-        }
-    ]
-    '''
+    
+    
     return render_template(
         "brief_history.html",
         history_list = history_list
     )
-
-
-
-
 
 
 @views.route("/manager", methods=["GET"])
