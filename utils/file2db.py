@@ -52,8 +52,10 @@ def club_event_to_db(
         with open(path + filename, "rt", encoding="utf-8") as f:
             for line in f.readlines():
                 year, title = line.split(",")[0], "".join(line.split(",")[1:])
-                title.replace('"', "")
-
+                
+                title = title.replace('"', '')
+                title = title.replace('"', '')
+                
                 sql.insert_club_event(title, year)
         
     return
@@ -98,8 +100,9 @@ def photo_to_db(
         for ext in extensions:
             filename = filename.lower().replace(ext, "")
         number, name, _ = filename.split("_")
+        # print( number, name)
         user_id = sql.get_user_id(number, name)
-        sql.insert_photo(user_id, photoname, title="", loc="")
+        sql.insert_photo(user_id, photoname)
 
     return 
 
