@@ -41,6 +41,7 @@ class Sql():
 
         return 
 
+
     def check_user_exist(self, number, name):
         query = """
         SELECT * FROM user
@@ -59,23 +60,18 @@ class Sql():
         self.__cursor__.execute( query, ( major,  profile, number, name ) )
         return
 
-    def insert_photo(self, user_id, file, title="", loc=""):
+    def insert_photo(self, user_id, file):
         query = """
-        INSERT INTO photo (user_id, file, photo_title, loc) 
-        values (%s, %s, %s, %s);
+        INSERT INTO photo (user_id, file) 
+        values (%s, %s);
         """
 
-        self.__cursor__.execute( query, (
-                                    user_id, 
-                                    file, 
-                                    title, 
-                                    loc
-                                ) )
+        self.__cursor__.execute( query, (user_id, file) )
         return 
 
     def get_fresh_student(self):
         query = """
-        SELECT MAX(id) FROM user ;
+        SELECT MAX(number) FROM user ;
         """
         self.__cursor__.execute(query)
         return int(self.__cursor__.fetchone()[0])
