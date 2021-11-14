@@ -52,9 +52,10 @@
         {% set date_index = loop.index0 %}
         <div class = "history_box history_box_{{date_index}}">
             {% for k, v in history.items() %}
-                {% for img in v %}
+                {% for img, year, title in v %}
                 <div class = "history_img_box">
                     <img src="/static/img/history/{{img}}">
+                    <p>{{year}} {{title}}</p>
                 </div>
                 {% endfor %}
            {% endfor %}

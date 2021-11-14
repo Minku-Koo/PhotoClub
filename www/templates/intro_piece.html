@@ -55,10 +55,11 @@
 
     {% for piece in piece_list_student %}
         <div class = "piece_box student">
-            <a href='/static/img/pieces/{{piece["image"]}}' data-caption="Image caption">
+            <a href='/static/img/pieces/{{piece["image"]}}' >
                 <img src="/static/img/pieces/{{piece['image']}}">
             </a>
             <p>{{piece['artist']}}</p>
+            
         </div>
     {% endfor %}
 

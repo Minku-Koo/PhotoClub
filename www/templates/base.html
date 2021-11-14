@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Cheongju University, Photography Club</title>
     </head>
-    <body>
+    <body - oncontextmenu='return false' >
         <div class="tri_background_shadow"></div>
         <header>
             <div id='logo_box' onclick='location.href="/"'>
@@ -16,7 +16,7 @@
             </div>
 
             <ul class="menu_nav">
-                <li onclick='location.href="/intro_piece"'>작품소개</li>
+                <li onclick='location.href="/intro_piece"'>작품 소개</li>
                 <li onclick='location.href="/intro_club"'>동아리 소개</li>
                 <li onclick='location.href="/intro_member"'>부원 소개</li>
                 <li onclick='location.href="/club_history"'>동아리 역사</li>
@@ -32,7 +32,9 @@
                 <tr>
                     <td>　</td>
                     <td rowspan=3>
-                        <div class='footer_map'>지도</div>
+                        <div class='footer_map'>
+                            <img class="footer_map" src="/static/img/main/simple_map.png">
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +44,7 @@
                     <td style='height: 54px; font-size: 1.6vw; font-family: score5;'>사진예술연구회</td>
                 </tr>
                 <tr>
-                    <td colspan=2 style='font-size: 0.5vw; font-family: score3;'>청주대학교 중앙동아리 / 머 어쩌고 저쩌고</td>
+                    <td colspan=2 style='font-size: 0.5vw; font-family: score3;'>청주대학교 중앙동아리 Since 1977</td>
                 </tr>
                 <tr>
                     <td colspan=2 style='
@@ -50,16 +52,19 @@
                         text-align: right;
                         border-bottom: 1px solid #EEEEEE;
                         font-size: 12px;
-                        '>https://www.cjuclubphoto.com</td>
+                        '>https://www.cjuphotoclub.com</td>
                 </tr>
                 <tr>
                     <td colspan=2 style='text-align: right;'>
-                        <a href="#" class="fa fa-facebook"></a>
                         <a target="_blank"href="https://www.instagram.com/cju.photo_official/" class="fa fa-instagram"></a>
                     </td>
                 </tr>
                 <tr>
                     <td colspan=2 style='font-size: 10px; font-family: segonR;'>ⓒ 2021 by Cheongju University Photography Club</td>
+                    
+                </tr>
+                <tr>
+                    <td style="color:#8e8583">|Developer:구민구,박지용|Infra:임윤수|Design:이지우|</td>
                 </tr>
             </table>
         </footer>
