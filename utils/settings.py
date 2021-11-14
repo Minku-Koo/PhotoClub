@@ -44,6 +44,12 @@ def createTable(cursor, table_name):
     cursor.execute(query)
     return 
 
+# remove table
+def removeTable(cursor, table_name):
+    query = f"""DROP TABLE {table_name}"""
+    cursor.execute(query)
+    return
+
 # Set Initial Data
 def setInitData(cursor):
     query = "SELECT COUNT(*) FROM site;"
@@ -72,8 +78,10 @@ if __name__ == "__main__":
 
     # Create Table if not Table exist
     for table in db_info.tables.keys():
-        if not checkTable(cursor, table):
-            createTable(cursor, table)
+        if checkTable(cursor, table):
+            # remove table
+            removeTable(cursor, table)
+        createTable(cursor, table)
 
         if table == "site":
             # Input Homepage Initial Data
