@@ -6,6 +6,7 @@ on:
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == 'true'
     name: Flask App deploy from NCP server
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +19,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /usr/local/
+          cd /usr/local
           sudo rm -rf PhotoClub
           sudo git clone https://github.com/Minku-Koo/PhotoClub.git
           cd PhotoClub
