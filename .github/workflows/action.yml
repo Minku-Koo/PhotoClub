@@ -1,0 +1,26 @@
+name: Flask App deploy
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy:
+    name: Flask App deploy from NCP server
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /usr/local
+          sudo rm -rf PhotoClub
+          sudo git clone https://github.com/Minku-Koo/PhotoClub.git
+          cd PhotoClub
+          sudo pip3 install -r requirment.txt
+          sudo systemctl status pclub
