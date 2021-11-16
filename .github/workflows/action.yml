@@ -1,8 +1,8 @@
 name: Flask App deploy
 on:
-  push:
-    branches:
-    - main
+  pull_request:
+    types: [closed] # when PR closed
+    branches: [ main ]
 
 jobs:
   deploy:
