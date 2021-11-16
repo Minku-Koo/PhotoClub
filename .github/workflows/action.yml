@@ -6,7 +6,7 @@ on:
 jobs:
   deploy:
     if: contains(github.event.comment.body, 'merge')
-    name: Flask App deploy from NCP server
+    name: Deploy Flask App to NCP Server
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
