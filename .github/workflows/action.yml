@@ -22,5 +22,11 @@ jobs:
           sudo rm -rf PhotoClub
           sudo git clone https://github.com/Minku-Koo/PhotoClub.git
           cd PhotoClub
+          sed -i 's/\$HOST/"${{ secrets.DB_HOST }}"/' ./utils/db_info.py
+          sed -i 's/\$DB_NAME/"${{ secrets.DB_NAME }}"/' ./utils/db_info.py
+          sed -i 's/\$PORT/${{ secrets.DB_PORT }}/' ./utils/db_info.py
+          sed -i 's/\$USER/"${{ secrets.DB_USERNAME }}"/' ./utils/db_info.py
+          sed -i 's/\$PASSWORD/"${{ secrets.DB_PASSWORD }}"/' ./utils/db_info.py
+          sed -i 's/\$M_PASSWORD/"${{ secrets.DB_MANAGER_PASSWORD }}"/' ./utils/db_info.py
           sudo pip3 install -r requirment.txt
           sudo systemctl restart pclub

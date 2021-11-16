@@ -1,9 +1,9 @@
 # Database Information
-host = "localhost"
-db_name = "photoclub"
-port  = 3306
-user = "root"
-pwd = "rnalsrn12"
+host = $HOST
+db_name = $DB_NAME
+port  = $PORT
+user = $USER
+pwd = $PASSWORD
 charset = "utf8"
 
 # Database Table Information
@@ -58,4 +58,4 @@ tables = {
     """,
 }
 
-manager_password = "tkwls406?"
+manager_password = $M_PASSWORD
