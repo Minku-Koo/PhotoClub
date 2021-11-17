@@ -65,14 +65,18 @@
 
     {% for piece in piece_list_freshman %}
         <div class = "piece_box freshman">
-            <img src="/static/img/pieces/{{piece['image']}}">
+            <a href='/static/img/pieces/{{piece["image"]}}' >
+                <img src="/static/img/pieces/{{piece['image']}}">
+            </a>
             <p>{{piece['artist']}}</p>
         </div>
     {% endfor %}
 
     {% for piece in piece_list_clubman %}
         <div class = "piece_box clubman">
-            <img src="/static/img/pieces/{{piece['image']}}">
+            <a href='/static/img/pieces/{{piece["image"]}}' >
+                <img src="/static/img/pieces/{{piece['image']}}">
+            </a>
             <p>{{piece['artist']}}</p>
         </div>
     {% endfor %}
