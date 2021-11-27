@@ -10,6 +10,10 @@ class Sql():
         except  pymysql.Error as e:
             print("DB Connection Error!! :", e)
 
+    def closeCursor(self):
+        self.__cursor__.close()
+        return
+
     def getCursor(self):
         return self.__cursor__
 
