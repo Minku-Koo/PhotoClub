@@ -27,7 +27,8 @@ def index():
 def intro_piece():
     sql = Sql(__db__)
     piece_list_student, piece_list_freshman, piece_list_clubman = sql.get_user_photo_info()
-    
+    sql.closeCursor()
+
     return render_template(
         "intro_piece.html",
         piece_list_student = piece_list_student,
@@ -51,6 +52,8 @@ def intro_club():
     _, club_intro_txt, chairman_txt, club_chairman_txt = sql.get_site()
     
     now_year = datetime.date.today().year
+
+    sql.closeCursor()
 
     return render_template(
         "intro_club.html",
@@ -100,6 +103,8 @@ def intro_member():
         for user in other_users["club_member"]
     ]
 
+    sql.closeCursor()
+
     return render_template(
         "intro_member.html",
         student_chairman = student_chairman,
@@ -137,6 +142,8 @@ def club_history():
             pass
     # print(club_history_list)
     club_history_list.reverse()
+
+    sql.closeCursor()
     
     return render_template(
         "club_history.html",
@@ -152,6 +159,7 @@ def faq():
     for q, a in faq_db:
         faq_list.append( {"q":q, "a":a} )
    
+    sql.closeCursor()
    
     return render_template(
         "faq.html",
@@ -185,7 +193,8 @@ def brief_history():
         else:
             pass
     
-    
+    sql.closeCursor()
+
     return render_template(
         "brief_history.html",
         history_list = history_list
@@ -253,6 +262,9 @@ def setsite():
     history = sql.get_all("history")
     events =  sql.get_all("club_event")
     faq_list = sql.get_all("faq")
+
+    sql.closeCursor()
+    
     return render_template("set_site.html", 
                             history=history,
                             site  = site[1:],
