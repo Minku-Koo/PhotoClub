@@ -6,6 +6,15 @@ import datetime
 
 views = Blueprint("server", __name__)
 
+def db_connect():
+    return pymysql.connect(
+                db = info.db_name,
+                host = info.host,
+                user = info.user,
+                passwd = info.pwd ,
+                charset = info.charset 
+            )
+'''
 __db__ = pymysql.connect(
                 db = info.db_name,
                 host = info.host,
@@ -13,7 +22,7 @@ __db__ = pymysql.connect(
                 passwd = info.pwd ,
                 charset = info.charset 
             )
-
+'''
 @views.route("/", methods=["GET"])
 def index():
     if datetime.date.today().month < 10:
@@ -25,9 +34,11 @@ def index():
 
 @views.route("/intro_piece", methods=["GET"])
 def intro_piece():
+    __db__ = db_connect()
     sql = Sql(__db__)
     piece_list_student, piece_list_freshman, piece_list_clubman = sql.get_user_photo_info()
     sql.closeCursor()
+    __db__.close()
 
     return render_template(
         "intro_piece.html",
@@ -38,6 +49,7 @@ def intro_piece():
 
 @views.route("/intro_club", methods=["GET"])
 def intro_club():
+    __db__ = db_connect()
     sql = Sql(__db__)
     chairs = sql.get_chairs()
     # print(chairs)
@@ -54,6 +66,7 @@ def intro_club():
     now_year = datetime.date.today().year
 
     sql.closeCursor()
+    __db__.close()
 
     return render_template(
         "intro_club.html",
@@ -71,6 +84,7 @@ def intro_club():
 
 @views.route("/intro_member", methods=["GET"])
 def intro_member():
+    __db__ = db_connect()
     sql = Sql(__db__)
     chairs = sql.get_chairs()
     other_users = sql.get_other_users()
@@ -104,6 +118,7 @@ def intro_member():
     ]
 
     sql.closeCursor()
+    __db__.close()
 
     return render_template(
         "intro_member.html",
@@ -115,6 +130,7 @@ def intro_member():
 
 @views.route("/club_history", methods=["GET"])
 def club_history():
+    __db__ = db_connect()
     sql = Sql(__db__)
     history = sql.get_history()
     club_history_list = [
@@ -144,6 +160,7 @@ def club_history():
     club_history_list.reverse()
 
     sql.closeCursor()
+    __db__.close()
     
     return render_template(
         "club_history.html",
@@ -153,6 +170,7 @@ def club_history():
 
 @views.route("/faq", methods=["GET"])
 def faq():
+    __db__ = db_connect()
     sql = Sql(__db__)
     faq_db = sql.get_faq()
     faq_list = []
@@ -160,6 +178,7 @@ def faq():
         faq_list.append( {"q":q, "a":a} )
    
     sql.closeCursor()
+    __db__.close()
    
     return render_template(
         "faq.html",
@@ -169,6 +188,7 @@ def faq():
 
 @views.route("/brief_history", methods=["GET"])
 def brief_history():
+    __db__ = db_connect()
     sql = Sql(__db__)
     history_list = [
         {"2020년대":[]},
@@ -194,6 +214,7 @@ def brief_history():
             pass
     
     sql.closeCursor()
+    __db__.close()
 
     return render_template(
         "brief_history.html",
@@ -256,7 +277,8 @@ def setsite():
         msg = "올바르지 못한 접근입니다."    
         print("올바르지 못한 접근입니다.")
         return render_template("login.html", msg=msg)
-    
+
+    __db__ = db_connect()
     sql = Sql(__db__)
     site = sql.get_last("site")
     history = sql.get_all("history")
